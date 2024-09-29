@@ -3,10 +3,6 @@ import { Github, Linkedin, Mail, Send } from "lucide-react";
 export default function Contacts() {
     return (
         <div className="max-w-[500px] mx-auto space-y-5">
-            <h1 className="text-2xl md:text-3xl font-bold text-center">
-                Links
-            </h1>
-
             <div className="flex flex-wrap justify-center gap-3">
                 <div
                     className="group cursor-pointer common-bg p-1 rounded-xl text-base font-medium text-neutral-600 dark:text-neutral-200">
