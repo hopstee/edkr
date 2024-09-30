@@ -45,11 +45,11 @@ export default function ThemeSwitcher() {
                     </span>
                 </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className=''>
+            <DropdownMenuContent className='common-bg'>
                 <DropdownMenuRadioGroup value={theme} onValueChange={setTheme}>
-                    <DropdownMenuRadioItem value='light'>Light</DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value='dark'>Dark</DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value='system'>System</DropdownMenuRadioItem>
+                    <DropdownMenuRadioItem value='light' className='hover:bg-neutral-200 dark:hover:bg-neutral-700'>Light</DropdownMenuRadioItem>
+                    <DropdownMenuRadioItem value='dark' className='hover:bg-neutral-200 dark:hover:bg-neutral-700'>Dark</DropdownMenuRadioItem>
+                    <DropdownMenuRadioItem value='system' className='hover:bg-neutral-200 dark:hover:bg-neutral-700'>System</DropdownMenuRadioItem>
                 </DropdownMenuRadioGroup>
             </DropdownMenuContent>
         </DropdownMenu>
