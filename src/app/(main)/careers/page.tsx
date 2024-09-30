@@ -1,4 +1,4 @@
-import { Career } from "@/types/career"
+import { Career } from "@/shared/types/career"
 import CareersView from "@/views/careers"
 
 const careers: Career[] = [

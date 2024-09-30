@@ -1,5 +1,5 @@
-import CareerItem from "@/components/career";
-import { Career } from "@/types/career";
+import CareerItem from "@/components/partials/career";
+import { Career } from "@/shared/types/career";
 
 export default function CareersView({ careers }: { careers: Career[] }) {
     return (

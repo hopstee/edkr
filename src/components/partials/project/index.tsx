@@ -1,4 +1,4 @@
-import { Project, TechStack } from "@/types/project";
+import { Project, TechStack } from "@/shared/types/project";
 import { ArrowUpRight } from "lucide-react";
 
 export default function ProjectItem({ project }: { project: Project }) {

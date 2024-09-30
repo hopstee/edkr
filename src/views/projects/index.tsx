@@ -1,5 +1,5 @@
-import ProjectItem from "@/components/project";
-import { Project } from "@/types/project";
+import ProjectItem from "@/components/partials/project";
+import { Project } from "@/shared/types/project";
 
 export default function ProjectsView({ projects }: { projects: Project[] }) {
     return (

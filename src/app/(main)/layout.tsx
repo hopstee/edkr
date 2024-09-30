@@ -1,5 +1,5 @@
-import BottomBar from "@/components/bottombar";
-import Header from "@/components/header";
+import BottomBar from "@/components/partials/bottombar";
+import Header from "@/components/partials/header";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 export default function MainLayout({
