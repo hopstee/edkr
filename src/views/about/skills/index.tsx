@@ -16,11 +16,11 @@ interface SkillCategoryProps {
 
 const SkillCategoryWidget: React.FC<SkillCategoryProps> = ({ title, items }) => {
     return (
-        <div className='common-bg rounded-xl h-full w-full'>
+        <div className='common-bg rounded-xl h-full'>
             <div className='p-3 border-b border-neutral-300 dark:border-neutral-600'>
                 <h6>{title}</h6>
             </div>
-            <div className='grid grid-cols-[repeat(auto-fill,minmax(80px,1fr))] p-5 gap-5'>
+            <div className='grid grid-cols-[repeat(auto-fill,minmax(80px,1fr))] p-5 gap-5 min-w-[300px]'>
                 {items.map((item, index) => (
                     <div key={index}>
                         <div className='flex flex-col items-center bg-neutral-100 dark:bg-neutral-700 rounded-lg p-3'>
@@ -119,11 +119,11 @@ export default function Skills() {
             <h1 className='text-2xl md:text-3xl font-bold text-center'>
                 Stack
             </h1>
-            <div className='w-full mt-5'>
+            <div className='mt-5'>
                 <Carousel
-                    className='h-full max-w-full'
+                    className='h-full w-full mx-auto'
                 >
-                    <CarouselContent className='h-full -ml-5'>
+                    <CarouselContent className='-ml-5'>
                         {skillCategories.map((category, index) => (
                             <CarouselItem
                                 key={index}
