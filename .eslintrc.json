@@ -33,7 +33,6 @@
         ],
         "array-bracket-spacing": "off",
         "no-unused-vars": "off",
-        "no-cyrillic-string/no-cyrillic-string": "error",
         "operator-linebreak": [
             "error",
             "after",
