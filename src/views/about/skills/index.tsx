@@ -3,9 +3,10 @@ import Image from "next/image";
 
 interface SkillItem {
     type: 'image' | 'text';
-    src?: string;
-    alt?: string;
-    text?: string;
+    src: string;
+    alt: string;
+    text: string;
+    darkSrc?: string;
 }
 
 interface SkillCategoryProps {
@@ -15,7 +16,7 @@ interface SkillCategoryProps {
 
 const SkillCategoryWidget: React.FC<SkillCategoryProps> = ({ title, items }) => {
     return (
-        <div className='common-bg rounded-xl h-full'>
+        <div className='common-bg rounded-xl h-full w-full'>
             <div className='p-3 border-b border-neutral-300 dark:border-neutral-600'>
                 <h6>{title}</h6>
             </div>
@@ -23,7 +24,14 @@ const SkillCategoryWidget: React.FC<SkillCategoryProps> = ({ title, items }) => 
                 {items.map((item, index) => (
                     <div key={index}>
                         <div className='flex flex-col items-center bg-neutral-100 dark:bg-neutral-700 rounded-lg p-3'>
-                            <Image src={item.src!} alt={item.alt!} width={32} height={32} className='mb-2' />
+                            {item.darkSrc ? (
+                                <>
+                                    <Image src={item.src} alt={item.alt} width={32} height={32} className='mb-2 dark:hidden' />
+                                    <Image src={item.darkSrc} alt={item.alt} width={32} height={32} className='mb-2 hidden dark:block' />
+                                </>
+                            ) : (
+                                <Image src={item.src} alt={item.alt} width={32} height={32} className='mb-2' />
+                            )}
                             <span className='text-xs font-medium text-neutral-700 dark:text-neutral-300 text-center'>{item.text}</span>
                         </div>
                     </div>
@@ -49,7 +57,7 @@ export default function Skills() {
             title: "Front-end",
             items: [
                 { type: "image", src: "/icons/frontend/reactjs.svg", alt: "react", text: "React" },
-                { type: "image", src: "/icons/frontend/nextjs.svg", alt: "nextjs", text: "NextJS" },
+                { type: "image", src: "/icons/frontend/nextjs-light.svg", darkSrc: "/icons/frontend/nextjs-dark.svg", alt: "nextjs", text: "NextJS" },
                 { type: "image", src: "/icons/frontend/html.svg", alt: "html", text: "Html" },
                 { type: "image", src: "/icons/frontend/css.svg", alt: "css", text: "Css" },
             ],
@@ -75,10 +83,10 @@ export default function Skills() {
         {
             title: "UI",
             items: [
-                { type: "image", src: "/icons/ui/radixui.svg", alt: "radixui", text: "RadixUI" },
-                { type: "image", src: "/icons/ui/shadcnui.svg", alt: "shadcnui", text: "ShadcnUI" },
+                { type: "image", src: "/icons/ui/radixui-light.svg", darkSrc: "/icons/ui/radixui-dark.svg", alt: "radixui", text: "RadixUI" },
+                { type: "image", src: "/icons/ui/shadcnui-light.svg", darkSrc: "/icons/ui/shadcnui-dark.svg", alt: "shadcnui", text: "ShadcnUI" },
                 { type: "image", src: "/icons/ui/tailwind.svg", alt: "tailwind", text: "Tailwind" },
-                { type: "image", src: "/icons/ui/bootstrap.svg", alt: "bootstrap", text: "Bootstrap" },
+                { type: "image", src: "/icons/ui/bootstrap-light.svg", darkSrc: "/icons/ui/bootstrap-dark.svg", alt: "bootstrap", text: "Bootstrap" },
                 { type: "image", src: "/icons/ui/materialui.svg", alt: "materialui", text: "MaterialUI" },
             ],
         },
@@ -86,7 +94,7 @@ export default function Skills() {
             title: "Tools",
             items: [
                 { type: "image", src: "/icons/tools/homebrew.svg", alt: "homebrew", text: "Homebrew" },
-                { type: "image", src: "/icons/tools/jira.svg", alt: "jira", text: "Jira" },
+                { type: "image", src: "/icons/tools/jira-light.svg", darkSrc: "/icons/tools/jira-dark.svg", alt: "jira", text: "Jira" },
                 { type: "image", src: "/icons/tools/npm.svg", alt: "npm", text: "npm" },
                 { type: "image", src: "/icons/tools/postman.svg", alt: "postman", text: "Postman" },
                 { type: "image", src: "/icons/tools/slack.svg", alt: "slack", text: "Slack" },
@@ -97,7 +105,7 @@ export default function Skills() {
             title: "DevOps",
             items: [
                 { type: "image", src: "/icons/devops/git.svg", alt: "git", text: "Git" },
-                { type: "image", src: "/icons/devops/github.svg", alt: "github", text: "GitHub" },
+                { type: "image", src: "/icons/devops/github-light.svg", darkSrc: "/icons/devops/github-dark.svg", alt: "github", text: "GitHub" },
                 { type: "image", src: "/icons/devops/gitlab.svg", alt: "gitlab", text: "GitLab" },
                 { type: "image", src: "/icons/devops/docker.svg", alt: "docker", text: "Docker" },
                 { type: "image", src: "/icons/devops/bitbucket.svg", alt: "bitbucket", text: "Bitbucket" },
@@ -113,11 +121,14 @@ export default function Skills() {
             </h1>
             <div className='w-full mt-5'>
                 <Carousel
-                    className='h-full'
+                    className='h-full max-w-full'
                 >
-                    <CarouselContent className='h-full'>
+                    <CarouselContent className='h-full -ml-5'>
                         {skillCategories.map((category, index) => (
-                            <CarouselItem key={index} className='md:basis-1/2 lg:basis-1/3'>
+                            <CarouselItem
+                                key={index}
+                                className='basis-full md:basis-1/2 lg:basis-1/3 pl-5'
+                            >
                                 <SkillCategoryWidget
                                     title={category.title}
                                     items={category.items as SkillItem[]}
@@ -125,8 +136,8 @@ export default function Skills() {
                             </CarouselItem>
                         ))}
                     </CarouselContent>
-                    <CarouselPrevious />
-                    <CarouselNext />
+                    <CarouselPrevious className='absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/2' />
+                    <CarouselNext className='absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-1/2' />
                 </Carousel>
             </div>
         </div>
