@@ -3,7 +3,7 @@ import Skills from "./skills";
 
 export default function AboutView() {
     return (
-        <div className='space-y-20 py-8 md:py-16'>
+        <div className='space-y-20 pt-8 md:pt-16'>
             <Info />
             <Skills />
         </div>

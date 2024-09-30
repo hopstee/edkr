@@ -8,7 +8,7 @@ export default function BottomBar() {
     const pathname = usePathname()
 
     return (
-        <div className='absolute bottom-0 w-full p-5 z-50 block md:hidden'>
+        <div className='sticky bottom-0 w-full p-5 z-50 block md:hidden'>
             <div className='p-1 rounded-xl common-bg'>
                 <div className='w-full flex space-x-5 text-neutral-900 dark:text-white'>
                     <Link
