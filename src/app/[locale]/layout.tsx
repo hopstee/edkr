@@ -1,73 +1,27 @@
-import type { Metadata } from "next";
-import { NextIntlClientProvider } from "next-intl";
-import { getMessages, unstable_setRequestLocale } from "next-intl/server";
-import dynamic from "next/dynamic";
-import localFont from "next/font/local";
-import { cookies } from "next/headers";
-import NextTopLoader from "nextjs-toploader";
-import "./globals.css";
+import BottomBar from "@/components/partials/bottombar";
+import Header from "@/components/partials/header";
 
-const geistSans = localFont({
-    src: "./fonts/GeistVF.woff",
-    variable: "--font-geist-sans",
-    weight: "100 900",
-});
-const geistMono = localFont({
-    src: "./fonts/GeistMonoVF.woff",
-    variable: "--font-geist-mono",
-    weight: "100 900",
-});
-
-export const metadata: Metadata = {
-    title: "Edik Krivovyaschuk - Fullstack Developer",
-    description: "My name is Edik, I'm a developer with over 5 years of experience in building products using modern technologies like NodeJS (NestJS, ExpressJS), ReactJS (NextJS), Laravel, PostgreSQL, MySQL, Mongodb, Blockchain. Open for work and cooperation.",
-};
-
-const AppThemeProvider = dynamic(() => import("@/components/context/theme"), {
-    ssr: false,
-});
-
-export default async function RootLayout({
+export default function MainLayout({
     children,
-    params,
 }: Readonly<{
     children: React.ReactNode;
-    params: { locale: string };
 }>) {
-    unstable_setRequestLocale(params.locale);
-
-    const theme = cookies().get("__theme__")?.value || "system";
-    const messages = await getMessages()
-
     return (
-        <html lang='en'>
-            <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased bg-neutral-100 dark:bg-neutral-900 bg-[radial-gradient(#7171714f_1px,transparent_1px)] dark:bg-[radial-gradient(#b0b0b04f_1px,transparent_1px)] [background-size:20px_20px] transition-all`}
-            >
-                <NextIntlClientProvider messages={messages}>
-                    <AppThemeProvider
-                        attribute='class'
-                        defaultTheme={theme}
-                        enableSystem
-                    >
-                        {children}
-                    </AppThemeProvider>
-                </NextIntlClientProvider>
+        <div className='relativew-full min-h-screen flex flex-col'>
+            <Header />
+            <div className='flex-grow overflow-y-auto'>
+                <div className='min-h-full w-full'>
+                    <div className='w-full max-w-[1220px] min-h-full px-5 mx-auto text-neutral-900 dark:text-neutral-100'>
+                        <div className='flex-1 pb-16 md:pb-5'>
+                            <main className='pb-8 md:pb-0'>
+                                {children}
+                            </main>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                <NextTopLoader
-                    color='#2299DD'
-                    initialPosition={0.08}
-                    crawlSpeed={200}
-                    height={3}
-                    crawl={true}
-                    showSpinner={false}
-                    easing='ease'
-                    speed={200}
-                    shadow='0 0 10px #2299DD,0 0 5px #2299DD'
-                    zIndex={1600}
-                    showAtBottom={false}
-                />
-            </body>
-        </html>
+            <BottomBar />
+        </div>
     );
 }

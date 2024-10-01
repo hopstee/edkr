@@ -11,13 +11,11 @@ import {
 } from "@/components/ui/dialog";
 import {
     Drawer,
-    DrawerClose,
     DrawerContent,
     DrawerDescription,
-    DrawerFooter,
     DrawerHeader,
     DrawerTitle,
-    DrawerTrigger,
+    DrawerTrigger
 } from "@/components/ui/drawer";
 
 import useMediaQuery from "@/hooks/useMediaQuery";
@@ -128,7 +126,7 @@ export default function LangSwitcher() {
                         {t('description')}
                     </DrawerDescription>
                 </DrawerHeader>
-                <div className='px-4'>
+                <div className='px-5 pb-5'>
                     {mockData.map((item, index) => (
                         <LanguageItem
                             key={index}
@@ -138,11 +136,6 @@ export default function LangSwitcher() {
                         />
                     ))}
                 </div>
-                <DrawerFooter className='pt-2'>
-                    <DrawerClose asChild>
-                        <Button variant='outline'>{t('close')}</Button>
-                    </DrawerClose>
-                </DrawerFooter>
             </DrawerContent>
         </Drawer>
     )

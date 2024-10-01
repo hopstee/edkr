@@ -30,15 +30,15 @@ export default function BottomBar() {
                         </p>
                     </Link>
                     <Link
-                        href='/careers'
+                        href='/experience'
                         className={cn(
                             'nav-item w-1/3 h-12 flex flex-col items-center justify-center rounded-lg',
-                            currentPath === 'careers' && 'common-contrast-bg text-violet-500 dark:text-yellow-500'
+                            currentPath === 'experience' && 'common-contrast-bg text-violet-500 dark:text-yellow-500'
                         )}
                     >
                         <BriefcaseBusiness className='w-5 h-5' />
                         <p className='text-xs font-light mt-1'>
-                            {t('careers')}
+                            {t('experience')}
                         </p>
                     </Link>
                     <Link

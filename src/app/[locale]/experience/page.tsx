@@ -1,7 +1,7 @@
-import { Career } from "@/shared/types/career"
-import CareersView from "@/views/careers"
+import { Experience } from "@/shared/types/experience"
+import ExperiencesView from "@/views/experience"
 
-const careers: Career[] = [
+const experienceList: Experience[] = [
     {
         position: "Fullstack Developer",
         company: "Crossnetics",
@@ -88,6 +88,6 @@ const careers: Career[] = [
     },
 ]
 
-export default function CareersPage() {
-    return <CareersView careers={careers} />
+export default function ExperiencesPage() {
+    return <ExperiencesView experienceList={experienceList} />
 }

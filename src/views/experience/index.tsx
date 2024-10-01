@@ -1,7 +1,7 @@
-import CareerItem from '@/components/partials/career';
-import { Career } from '@/shared/types/career';
+import ExperienceItem from '@/components/partials/experience';
+import { Experience } from '@/shared/types/experience';
 
-export default function CareersView({ careers }: { careers: Career[] }) {
+export default function ExperiencesView({ experienceList }: { experienceList: Experience[] }) {
     return (
         <div className='py-8 md:py-16'>
             <div className='relative max-w-[700px] mx-auto pl-3'>
@@ -24,8 +24,8 @@ export default function CareersView({ careers }: { careers: Career[] }) {
                     </div>
                 </div>
                 <div className='py-16 space-y-16'>
-                    {careers.map((career: Career, index: number) => (
-                        <CareerItem career={career} key={index} />
+                    {experienceList.map((experience: Experience, index: number) => (
+                        <ExperienceItem experience={experience} key={index} />
                     ))}
                 </div>
             </div>

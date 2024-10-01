@@ -23,10 +23,10 @@ export default function Header() {
                         <div className='flex'>
                             <span className='text-2xl'>✌️</span>
                             <div className='flex flex-col justify-start'>
-                                <a className='block text-violet-500 dark:text-yellow-500 text-2xl transition-colors' href='/'>
+                                <Link className='block text-violet-500 dark:text-yellow-500 text-2xl transition-colors' href='/'>
                                     <span className='sr-only'>Home</span>
                                     edkr.
-                                </a>
+                                </Link>
                             </div>
                         </div>
 
@@ -67,15 +67,15 @@ export default function Header() {
 
                                 <li>
                                     <Link
-                                        href='/careers'
+                                        href='/experience'
                                         className={twMerge(
                                             'nav-item transition-all hover:bg-neutral-400/15 px-3 rounded-lg min-w-20 h-12 flex flex-col items-center justify-center',
-                                            currentPath === 'careers' && 'common-contrast-bg text-violet-500 dark:text-yellow-500'
+                                            currentPath === 'experience' && 'common-contrast-bg text-violet-500 dark:text-yellow-500'
                                         )}
                                     >
                                         <BriefcaseBusiness className='w-5 h-5' />
                                         <p className='text-xs font-light mt-1'>
-                                            {t('careers')}
+                                            {t('experience')}
                                         </p>
                                     </Link>
                                 </li>

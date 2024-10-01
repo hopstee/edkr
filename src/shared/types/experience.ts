@@ -1,4 +1,4 @@
-export type Career = {
+export type Experience = {
     position: string
     company: string
     period: {
