@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages, unstable_setRequestLocale } from "next-intl/server";
 import dynamic from "next/dynamic";
 import localFont from "next/font/local";
 import { cookies } from "next/headers";
@@ -25,25 +27,32 @@ const AppThemeProvider = dynamic(() => import("@/components/context/theme"), {
     ssr: false,
 });
 
-export default function RootLayout({
+export default async function RootLayout({
     children,
+    params,
 }: Readonly<{
     children: React.ReactNode;
+    params: { locale: string };
 }>) {
+    unstable_setRequestLocale(params.locale);
+
     const theme = cookies().get("__theme__")?.value || "system";
+    const messages = await getMessages()
 
     return (
         <html lang='en'>
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased bg-neutral-100 dark:bg-neutral-900 bg-[radial-gradient(#7171714f_1px,transparent_1px)] dark:bg-[radial-gradient(#b0b0b04f_1px,transparent_1px)] [background-size:20px_20px] transition-all`}
             >
-                <AppThemeProvider
-                    attribute='class'
-                    defaultTheme={theme}
-                    enableSystem
-                >
-                    {children}
-                </AppThemeProvider>
+                <NextIntlClientProvider messages={messages}>
+                    <AppThemeProvider
+                        attribute='class'
+                        defaultTheme={theme}
+                        enableSystem
+                    >
+                        {children}
+                    </AppThemeProvider>
+                </NextIntlClientProvider>
 
                 <NextTopLoader
                     color='#2299DD'

@@ -1,12 +1,15 @@
 'use client'
 
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import { twMerge } from 'tailwind-merge';
+import LangSwitcher from '../lang-switcher';
 import ThemeSwitcher from '../theme-switcher';
 
 export default function Header() {
     const pathname = usePathname()
+    const t = useTranslations('navigation')
 
     return (
         <header className='sticky top-0 w-full p-5 z-50 max-w-[1220px] mx-auto'>
@@ -51,7 +54,7 @@ export default function Header() {
                                             pathname === '/' && 'common-contrast-bg'
                                         )}
                                     >
-                                        About
+                                        {t('home')}
                                     </Link>
                                 </li>
 
@@ -63,7 +66,7 @@ export default function Header() {
                                             pathname === '/careers' && 'common-contrast-bg'
                                         )}
                                     >
-                                        Careers
+                                        {t('careers')}
                                     </Link>
                                 </li>
 
@@ -75,14 +78,17 @@ export default function Header() {
                                             pathname === '/projects' && 'common-contrast-bg'
                                         )}
                                     >
-                                        Projects
+                                        {t('projects')}
                                     </Link>
                                 </li>
                             </ul>
                         </nav>
                     </div>
 
-                    <ThemeSwitcher />
+                    <div className='flex items-center gap-2'>
+                        <LangSwitcher />
+                        <ThemeSwitcher />
+                    </div>
                 </div>
             </div>
         </header >
