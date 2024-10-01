@@ -35,7 +35,7 @@ export default function RootLayout({
     return (
         <html lang='en'>
             <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+                className={`${geistSans.variable} ${geistMono.variable} antialiased bg-neutral-100 dark:bg-neutral-900 bg-[radial-gradient(#7171714f_1px,transparent_1px)] dark:bg-[radial-gradient(#b0b0b04f_1px,transparent_1px)] [background-size:20px_20px] transition-all`}
             >
                 <AppThemeProvider
                     attribute='class'
