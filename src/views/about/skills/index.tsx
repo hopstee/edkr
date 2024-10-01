@@ -23,7 +23,7 @@ const SkillCategoryWidget: React.FC<SkillCategoryProps> = ({ title, items }) => 
             <div className='grid grid-cols-[repeat(auto-fill,minmax(80px,1fr))] p-5 gap-5 min-w-[300px]'>
                 {items.map((item, index) => (
                     <div key={index}>
-                        <div className='flex flex-col items-center bg-neutral-100 dark:bg-neutral-700 rounded-lg p-3'>
+                        <div className='flex flex-col items-center common-contrast-bg rounded-lg p-3'>
                             {item.darkSrc ? (
                                 <>
                                     <Image src={item.src} alt={item.alt} width={32} height={32} className='mb-2 dark:hidden' />

@@ -13,7 +13,7 @@ body {
 }
 
 .common-bg {
-    @apply backdrop-blur-md bg-neutral-300/20 dark:bg-neutral-700/30
+    @apply backdrop-blur-md bg-neutral-200/70 dark:bg-neutral-800/90
 }
 
 .common-contrast-bg {
@@ -21,11 +21,11 @@ body {
 }
 
 .common-border {
-    @apply border border-neutral-300 dark:border-neutral-600
+    @apply border border-neutral-300 dark:border-neutral-700
 }
 
 @layer base {
-  :root {
+    :root {
         --background: 0 0% 100%;
         --foreground: 0 0% 3.9%;
         --card: 0 0% 100%;
@@ -52,7 +52,8 @@ body {
         --chart-5: 27 87% 67%;
         --radius: 0.5rem;
     }
-  .dark {
+
+    .dark {
         --background: 0 0% 3.9%;
         --foreground: 0 0% 98%;
         --card: 0 0% 3.9%;
@@ -81,10 +82,11 @@ body {
 }
 
 @layer base {
-  * {
-    @apply border-border;
+    * {
+        @apply border-border;
     }
-  body {
-    @apply bg-background text-foreground;
+
+    body {
+        @apply bg-background text-foreground;
     }
 }
