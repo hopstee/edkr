@@ -77,7 +77,7 @@ export default function LangSwitcher() {
     const t = useTranslations('settings.lang')
 
     const handleChangeLang = (code: Locale) => {
-        const path = pathname.replace(`/${locale}`, code);
+        const path = pathname.replace(`/${locale}`, `/${code}`);
         router.replace(path);
     }
 
