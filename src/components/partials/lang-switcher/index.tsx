@@ -86,7 +86,7 @@ export default function LangSwitcher() {
                     variant='ghost'
                     size='icon'
                     className={cn(
-                        'transition-all rounded-xl bg-neutral-200/60 hover:bg-neutral-200 dark:bg-neutral-700 dark:hover:bg-neutral-600',
+                        'transition-all rounded-xl bg-neutral-300/60 hover:bg-neutral-300 dark:bg-neutral-700/60 dark:hover:bg-neutral-700',
                     )}
                 >
                     {locale}
@@ -113,7 +113,7 @@ export default function LangSwitcher() {
                     variant='ghost'
                     size='icon'
                     className={cn(
-                        'transition-all rounded-xl bg-neutral-200/60 hover:bg-neutral-200 dark:bg-neutral-700 dark:hover:bg-neutral-600',
+                        'transition-all rounded-xl bg-neutral-300 hover:bg-neutral-200 dark:bg-neutral-700 dark:hover:bg-neutral-700/50',
                     )}
                 >
                     {locale}
