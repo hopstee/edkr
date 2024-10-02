@@ -1,34 +1,20 @@
-// import mongoose from 'mongoose';
+import mongoose, { Connection } from "mongoose";
 
-// const MONGODB_URI = process.env.MONGODB_URI as string;
+let cachedConnection: Connection | null = null;
 
-// if (!MONGODB_URI) {
-//     throw new Error('Please define the MONGODB_URI environment variable inside .env.local');
-// }
+export async function connectToMongoDB() {
+    if (cachedConnection) {
+        console.log("Using cached db connection");
+        return cachedConnection;
+    }
 
-// let cached = global.mongoose;
-
-// if (!cached) {
-//     cached = global.mongoose = { conn: null, promise: null };
-// }
-
-// async function dbConnect() {
-//     if (cached.conn) {
-//         return cached.conn;
-//     }
-
-//     if (!cached.promise) {
-//         const opts = {
-//             bufferCommands: false,
-//         };
-
-//         cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
-//             return mongoose;
-//         });
-//     }
-
-//     cached.conn = await cached.promise;
-//     return cached.conn;
-// }
-
-// export default dbConnect;
+    try {
+        const cnx = await mongoose.connect(process.env.MONGODB_URI!);
+        cachedConnection = cnx.connection;
+        console.log("New mongodb connection established");
+        return cachedConnection;
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+}
