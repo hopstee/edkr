@@ -89,14 +89,14 @@ interface SkillCategoryProps {
 
 const SkillCategoryWidget: React.FC<SkillCategoryProps> = ({ title, items }) => {
     return (
-        <div className='common-bg rounded-xl h-full'>
+        <div className='common-bg rounded-xl h-full cursor-grab active:cursor-grabbing active:rotate-2 active:scale-95 transition-all duration-300 select-none'>
             <div className='p-3 border-b border-neutral-300 dark:border-neutral-600'>
                 <h6>{title}</h6>
             </div>
             <div className='grid grid-cols-[repeat(auto-fill,minmax(80px,1fr))] p-5 gap-5 min-w-[300px]'>
                 {items.map((item, index) => (
                     <div key={index}>
-                        <div className='flex flex-col items-center common-contrast-bg rounded-lg p-3'>
+                        <div className='flex flex-col items-center rounded-lg p-3'>
                             {item.darkSrc ? (
                                 <>
                                     <Image src={item.src} alt={item.alt} width={32} height={32} className='mb-2 dark:hidden' />
