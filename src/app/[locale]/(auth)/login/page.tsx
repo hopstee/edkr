@@ -12,6 +12,7 @@ import {
     FormMessage
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Loader2 } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 
 interface formSchema {
@@ -33,18 +34,18 @@ const Login = () => {
                 password: values.password,
             }),
         });
-        console.log(res);
+        console.log(res.ok);
 
         if (res.ok) {
             router.push('/dashboard');
         } else {
-            alert('Invalid credentials');
+            form.setError('root', { message: 'Invalid credentials' });
         }
     };
 
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8 p-5 rounded-xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-800'>
+            <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4 p-5 rounded-xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-800'>
                 <FormField
                     control={form.control}
                     name='username'
@@ -71,7 +72,15 @@ const Login = () => {
                         </FormItem>
                     )}
                 />
-                <Button type='submit' className='w-full'>Submit</Button>
+                {form.formState.errors && <FormMessage>{form.formState.errors.root?.message}</FormMessage>}
+                <Button
+                    type='submit'
+                    className='w-full'
+                    disabled={form.formState.isSubmitting}
+                >
+                    {form.formState.isSubmitting && <Loader2 className='mr-2 h-4 w-4 animate-spin' />}
+                    Submit
+                </Button>
             </form>
         </Form>
     );

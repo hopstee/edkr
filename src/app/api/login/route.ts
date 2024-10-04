@@ -1,11 +1,14 @@
 import { serialize } from 'cookie';
-import jwt from 'jsonwebtoken';
+import * as jose from 'jose';
 
 export async function POST(req: Request) {
     const { username, password } = await req.json();
 
     if (username === process.env.ADMIN_USERNAME && password === process.env.ADMIN_PASSWORD) {
-        const token = jwt.sign({ username }, process.env.JWT_SECRET as string, { expiresIn: '1h' });
+        const token = await new jose.SignJWT({ username })
+            .setProtectedHeader({ alg: 'HS256' })
+            .setExpirationTime('5h')
+            .sign(new TextEncoder().encode(process.env.JWT_SECRET as string));
 
         return new Response('Logged in successfully', {
             status: 200,

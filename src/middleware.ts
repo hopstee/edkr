@@ -1,12 +1,9 @@
-import createMiddleware from 'next-intl/middleware';
+import { withAuthMiddleware } from '../middleware/authMiddleware';
+import { chain } from '../middleware/chain';
+import { withI18nMiddleware } from '../middleware/i18nMiddleware';
 
-const middleware = createMiddleware({
-    locales: ['en', 'ru'],
-    defaultLocale: 'en',
-});
-
-export default middleware;
+export default chain([withAuthMiddleware, withI18nMiddleware])
 
 export const config = {
-    matcher: ['/', '/(ru|en)/:page*'],
-};
+    matcher: ['/((?!api|_next/static|_next/images|assets|favicon.ico).*)']
+}
