@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import localFont from "next/font/local";
@@ -37,7 +38,12 @@ export default function RootLayout({
     return (
         <html lang={params.locale} >
             <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased bg-neutral-100 dark:bg-neutral-900 bg-[radial-gradient(#7171714f_1px,transparent_1px)] dark:bg-[radial-gradient(#b0b0b04f_1px,transparent_1px)] [background-size:20px_20px]`}
+                className={cn(
+                    geistSans.variable,
+                    geistMono.variable,
+                    'text-eerie-light dark:text-timberwolf',
+                    'antialiased bg-timberwolf dark:bg-eerie bg-[radial-gradient(#C7CABA_1px,transparent_1px)] dark:bg-[radial-gradient(#3D3D3D8f_1px,transparent_1px)] [background-size:20px_20px]'
+                )}
             >
                 <AppThemeProvider
                     attribute='class'

@@ -21,12 +21,12 @@ export default function AdminButton() {
                         variant='ghost'
                         size='icon'
                         className={cn(
-                            'bg-green-500/20 dark:bg-green-700/30 hover:bg-green-500/30 dark:hover:bg-green-700/40',
-                            'data-[state=open]:bg-green-500/30 focus:bg-green-500/30 dark:data-[state=open]:bg-green-700/40 dark:focus:bg-green-700/40',
-                            'rounded-xl cursor-pointer',
+                            'bg-ochre/60 hover:bg-ochre/80 dark:hover:bg-ochre/80 text-eerie-light dark:text-timberwolf-dark',
+                            'data-[state=open]:bg-ochre focus:bg-ochre0bg-ochre',
+                            'rounded-xl cursor-pointer p-0',
                         )}
                     >
-                        <Shield className='w-4 h-4 text-green-600' />
+                        <Shield className='w-4 h-4' />
                     </Button>
                 </MenubarTrigger>
                 <MenubarContent align='end' className='bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl'>

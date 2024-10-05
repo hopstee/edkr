@@ -11,10 +11,10 @@ export default function Info() {
                             src='/assets/images/photo-1.jpg'
                             alt='Edik Krivovyaschuk photo'
                             fill
-                            className='rounded-full object-cover object-center'
+                            className='rounded-full object-cover object-center border-4 border-timberwolf-dark dark:border-eerie-light'
                         />
                         <div className='absolute -top-5 md:top-3 right-0 translate-x-1/4'>
-                            <div className='common-bg common-border py-2 px-2 rounded-xl text-sm max-w-[150px] text-center'>
+                            <div className='backdrop-blur-md bg-timberwolf-dark/60 dark:bg-eerie-light/60 py-2 px-2 rounded-xl text-sm max-w-[150px] text-center'>
                                 👨‍💻 work hard
                             </div>
                         </div>
@@ -25,13 +25,13 @@ export default function Info() {
                         👋 Hey, I&apos;m Edik
                     </h1>
                     <div className='flex space-x-5 mt-3 justify-center'>
-                        <div className='common-bg px-3 py-1 mt-2 rounded-full w-fit'>
-                            <p className='text-xs font-thin text-neutral-600 dark:text-neutral-200'>
+                        <div className='bg-timberwolf-dark dark:bg-eerie-light px-3 py-1 mt-2 rounded-full w-fit'>
+                            <p className='text-xs font-thin text-eerie dark:text-timberwolf'>
                                 Back-end
                             </p>
                         </div>
-                        <div className='common-bg px-3 py-1 mt-2 rounded-full w-fit'>
-                            <p className='text-xs font-thin text-neutral-600 dark:text-neutral-200'>
+                        <div className='bg-timberwolf-dark dark:bg-eerie-light px-3 py-1 mt-2 rounded-full w-fit'>
+                            <p className='text-xs font-thin text-eerie dark:text-timberwolf'>
                                 Front-end
                             </p>
                         </div>

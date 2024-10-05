@@ -14,9 +14,7 @@ interface NavProps {
         title: string
         href: string
         path: string
-        label?: string
         icon: LucideIcon
-        variant: "default" | "ghost"
     }[]
 }
 
@@ -40,7 +38,7 @@ export default function Nav({ isCollapsed, links }: NavProps) {
                                     key={index}
                                     href={link.href}
                                     className={cn(
-                                        buttonVariants({ variant: link.variant, size: "icon" }),
+                                        buttonVariants({ variant: 'ghost', size: "icon" }),
                                         "h-9 w-9",
                                         "dark:hover:bg-muted dark:hover:text-white",
                                         "hover:bg-neutral-200 hover:text-neutral-900",
@@ -60,7 +58,7 @@ export default function Nav({ isCollapsed, links }: NavProps) {
                             key={index}
                             href={link.href}
                             className={cn(
-                                buttonVariants({ variant: link.variant, size: "sm" }),
+                                buttonVariants({ variant: 'ghost', size: "sm" }),
                                 "dark:text-white dark:hover:bg-muted dark:hover:text-white",
                                 "text-neutral-900 hover:bg-neutral-200 hover:text-neutral-900",
                                 "justify-start",

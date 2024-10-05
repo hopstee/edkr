@@ -5,8 +5,10 @@ import Nav from "@/components/partials/nav";
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
-import { Archive, ArchiveX, File, Inbox, Send, Trash2 } from "lucide-react";
+import { Briefcase, Hammer, Layers, User } from "lucide-react";
 import { useState } from "react";
+
+// #0C0C0C
 
 export default function DashboardLayout({
     children,
@@ -41,46 +43,28 @@ export default function DashboardLayout({
                                 isCollapsed={isCollapsed}
                                 links={[
                                     {
-                                        title: 'Inbox',
-                                        icon: Inbox,
+                                        title: 'Personal data',
+                                        icon: User,
                                         href: '/dashboard',
                                         path: '',
-                                        variant: 'ghost',
                                     },
                                     {
-                                        title: 'Drafts',
-                                        icon: File,
-                                        href: '/dashboard/drafts',
-                                        path: 'drafts',
-                                        variant: 'ghost',
+                                        title: 'Stack',
+                                        icon: Layers,
+                                        href: '/dashboard/stack',
+                                        path: 'stack',
                                     },
                                     {
-                                        title: 'Sent',
-                                        icon: Send,
-                                        href: '/dashboard/sent',
-                                        path: 'sent',
-                                        variant: 'ghost',
+                                        title: 'Experience',
+                                        icon: Briefcase,
+                                        href: '/dashboard/experience',
+                                        path: 'experience',
                                     },
                                     {
-                                        title: 'Junk',
-                                        icon: ArchiveX,
-                                        href: '/dashboard/junk',
-                                        path: 'junk',
-                                        variant: 'ghost',
-                                    },
-                                    {
-                                        title: 'Trash',
-                                        icon: Trash2,
-                                        href: '/dashboard/trash',
-                                        path: 'trash',
-                                        variant: 'ghost',
-                                    },
-                                    {
-                                        title: 'Archive',
-                                        icon: Archive,
-                                        href: '/dashboard/archive',
-                                        path: 'archive',
-                                        variant: 'ghost',
+                                        title: 'Projects',
+                                        icon: Hammer,
+                                        href: '/dashboard/projects',
+                                        path: 'projects',
                                     },
                                 ]}
                             />

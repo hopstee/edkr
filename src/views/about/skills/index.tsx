@@ -1,4 +1,5 @@
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
@@ -89,8 +90,12 @@ interface SkillCategoryProps {
 
 const SkillCategoryWidget: React.FC<SkillCategoryProps> = ({ title, items }) => {
     return (
-        <div className='common-bg rounded-xl h-full cursor-grab active:cursor-grabbing active:rotate-2 active:scale-95 transition-all duration-300 select-none'>
-            <div className='p-3 border-b border-neutral-300 dark:border-neutral-600'>
+        <div className={cn(
+            'backdrop-blur-md',
+            'bg-timberwolf-dark/60 dark:bg-eerie-light/60 border-4 border-timberwolf-dark dark:border-eerie-light',
+            'rounded-xl h-full cursor-grab active:cursor-grabbing active:rotate-2 active:scale-95 transition-all duration-300 select-none',
+        )}>
+            <div className='p-3 border-b-4 border-timberwolf-dark dark:border-eerie-light'>
                 <h6>{title}</h6>
             </div>
             <div className='grid grid-cols-[repeat(auto-fill,minmax(80px,1fr))] p-5 gap-5 min-w-[300px]'>
@@ -139,8 +144,20 @@ export default function Skills() {
                             </CarouselItem>
                         ))}
                     </CarouselContent>
-                    <CarouselPrevious className='absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/2' />
-                    <CarouselNext className='absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-1/2' />
+                    <CarouselPrevious
+                        className={cn(
+                            'absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/4 md:-translate-x-1/2 border-4',
+                            'bg-timberwolf hover:bg-timberwolf-dark border-timberwolf-dark text-eerie/60',
+                            'dark:bg-eerie dark:hover:bg-eerie-light dark:border-eerie-light dark:text-timberwolf/70',
+                        )}
+                    />
+                    <CarouselNext
+                        className={cn(
+                            'absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-1/4 md:translate-x-1/2 border-4',
+                            'bg-timberwolf hover:bg-timberwolf-dark border-timberwolf-dark text-eerie/60',
+                            'dark:bg-eerie dark:hover:bg-eerie-light dark:border-eerie-light dark:text-timberwolf/70',
+                        )}
+                    />
                 </Carousel>
             </div>
         </div>

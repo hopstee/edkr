@@ -25,11 +25,11 @@ export default function ThemeSwitcher() {
             onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
             className={cn(
                 'rounded-xl',
-                theme === 'light' && 'bg-blue-300/30 hover:bg-blue-400/30',
-                theme === 'dark' && 'bg-orange-900/30 hover:bg-orange-700/30',
+                theme === 'light' && 'bg-eerie/20 hover:bg-eerie/30',
+                theme === 'dark' && 'bg-timberwolf/20 hover:bg-timberwolf/30',
             )}
         >
-            {theme === 'light' ? <Moon className='h-4 w-4 text-blue-400' /> : <Sun className='h-4 w-4 text-orange-400' />}
+            {theme === 'light' ? <Moon className='h-4 w-4 text-eerie' /> : <Sun className='h-4 w-4 text-timberwolf' />}
         </Button>
         // <DropdownMenu>
         //     <DropdownMenuTrigger asChild>

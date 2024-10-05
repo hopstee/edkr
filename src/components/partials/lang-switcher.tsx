@@ -53,12 +53,12 @@ const LanguageItem: React.FC<LanguageItemProps> = ({ code, handleChangeLang, cur
         <div
             onClick={() => handleChangeLang(code)}
             className={cn(
-                'flex items-center justify-between px-4 py-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-md cursor-pointer',
-                currentLang === code && 'bg-neutral-100 dark:bg-neutral-800'
+                'flex items-center justify-between px-4 py-2 hover:bg-timberwolf-dark dark:hover:bg-eerie-light rounded-md cursor-pointer',
+                currentLang === code && 'bg-timberwolf-dark dark:bg-eerie-light'
             )}
         >
-            <span className='text-base text-neutral-800 dark:text-neutral-200'>{t(`${code}`)}</span>
-            <span className='text-sm text-neutral-500'>{code}</span>
+            <span className='text-base text-eerie dark:text-timberwolf'>{t(`${code}`)}</span>
+            <span className='text-sm text-eerie-light/60 dark:text-timberwolf-light/60'>{code}</span>
         </div>
     );
 };
@@ -88,20 +88,22 @@ export default function LangSwitcher() {
                     variant='ghost'
                     size='icon'
                     className={cn(
-                        'transition-all rounded-xl bg-neutral-300/60 hover:bg-neutral-300 dark:bg-neutral-700/60 dark:hover:bg-neutral-700',
+                        'transition-all rounded-xl bg-timberwolf-dark/60 dark:bg-eerie-light/60 hover:bg-timberwolf-dark dark:hover:bg-eerie-light',
                     )}
                 >
                     {locale}
                 </Button>
             </DialogTrigger>
-            <DialogContent className='sm:max-w-[425px] p-5 !rounded-xl'>
+            <DialogContent className='sm:max-w-[425px] p-5 !rounded-xl backdrop-blur-md bg-timberwolf-dark/60 dark:bg-eerie-light/60 border-4 border-timberwolf-dark dark:border-eerie-light'>
                 <DialogHeader>
-                    <DialogTitle>{t('title')}</DialogTitle>
-                    <DialogDescription>
+                    <DialogTitle className='text-eerie dark:text-timberwolf'>
+                        {t('title')}
+                    </DialogTitle>
+                    <DialogDescription className='text-eerie-light/70 dark:text-timberwolf-light/60'>
                         {t('description')}
                     </DialogDescription>
                 </DialogHeader>
-                <div>
+                <div className='space-y-2'>
                     {locales.map((item, index) => (
                         <LanguageItem key={index} code={item} currentLang={locale} handleChangeLang={handleChangeLang} />
                     ))}
@@ -115,16 +117,18 @@ export default function LangSwitcher() {
                     variant='ghost'
                     size='icon'
                     className={cn(
-                        'transition-all rounded-xl bg-neutral-300 hover:bg-neutral-200 dark:bg-neutral-700 dark:hover:bg-neutral-700/50',
+                        'transition-all rounded-xl bg-timberwolf-dark/60 dark:bg-eerie-light/60 hover:bg-timberwolf-dark dark:hover:bg-eerie-light',
                     )}
                 >
                     {locale}
                 </Button>
             </DrawerTrigger>
-            <DrawerContent>
+            <DrawerContent className='rounded-t-xl backdrop-blur-md bg-timberwolf-dark/60 dark:bg-eerie-light/60 border-4 border-timberwolf-dark dark:border-eerie-light'>
                 <DrawerHeader className='text-left'>
-                    <DrawerTitle>{t('title')}</DrawerTitle>
-                    <DrawerDescription>
+                    <DrawerTitle className='text-eerie dark:text-timberwolf'>
+                        {t('title')}
+                    </DrawerTitle>
+                    <DrawerDescription className='text-eerie-light/70 dark:text-timberwolf-light/60'>
                         {t('description')}
                     </DrawerDescription>
                 </DrawerHeader>

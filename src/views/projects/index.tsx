@@ -7,13 +7,13 @@ interface ProjectItemProps {
 
 const ProjectItem: React.FC<ProjectItemProps> = ({ project }) => {
     return (
-        <div className='flex flex-col common-bg rounded-xl overflow-hidden'>
+        <div className='flex flex-col backdrop-blur-md border-4 border-timberwolf-dark dark:border-eerie-light bg-timberwolf-dark/60 dark:bg-eerie-light/60 rounded-xl overflow-hidden'>
             <div className='w-full'>
                 <img src={project.image} alt={project.title} />
             </div>
             <div className='flex flex-1 flex-col justify-between p-3 rounded-b-xl'>
                 <div>
-                    <h3 className='text-lg font-semibold'>
+                    <h3 className='text-lg font-bold'>
                         {project.title}
                     </h3>
                     {project.techstack.map((item: TechStack, index: number) => (
@@ -21,8 +21,8 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ project }) => {
                             <h4 className='font-semibold'>{item.title}:</h4>
                             <div className='flex flex-wrap gap-1 mt-1'>
                                 {item.items.map((tech: string, index: number) => (
-                                    <div key={index} className='common-contrast-bg px-3 py-1 rounded-full w-fit'>
-                                        <p className='text-xs font-normal text-neutral-600 dark:text-neutral-200'>
+                                    <div key={index} className='bg-timberwolf-dark dark:bg-eerie-light px-3 py-1 rounded-full w-fit'>
+                                        <p className='text-xs font-normal text-eerie/70 dark:text-timberwolf/70'>
                                             {tech}
                                         </p>
                                     </div>
