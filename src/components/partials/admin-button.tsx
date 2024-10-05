@@ -1,16 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarTrigger } from "@/components/ui/menubar";
-import { Link } from "@/i18n/routing";
+import { Link, usePathname, useRouter } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import { LayoutDashboard, LogOut, Shield } from "lucide-react";
-import { useRouter } from "next/navigation";
 
 export default function AdminButton() {
     const router = useRouter();
+    const pathname = usePathname();
 
     const handleSignOut = async () => {
         await fetch('/api/logout', { method: 'POST', credentials: 'include' })
-        router.refresh();
+        router.push(pathname);
     }
 
     return (
@@ -29,8 +29,8 @@ export default function AdminButton() {
                         <Shield className='w-4 h-4 text-green-600' />
                     </Button>
                 </MenubarTrigger>
-                <MenubarContent align='end'>
-                    <MenubarItem>
+                <MenubarContent align='end' className='bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl'>
+                    <MenubarItem className='rounded-lg hover:bg-neutral-300/40 dark:hover:bg-neutral-700/40'>
                         <Link href='/dashboard' className='w-full flex items-center'>
                             <LayoutDashboard className='w-4 h-4 mr-2' />
                             Dashboard
@@ -40,7 +40,7 @@ export default function AdminButton() {
                         onClick={() => {
                             handleSignOut()
                         }}
-                        className='cursor-pointer text-red-600 focus:bg-red-400/30 focus:text-red-500 dark:hover:bg-red-700/40'
+                        className='cursor-pointer text-red-600 focus:bg-red-400/30 focus:text-red-500 dark:hover:bg-red-700/40 rounded-lg'
                     >
                         <LogOut className='w-4 h-4 mr-2' />
                         Logout

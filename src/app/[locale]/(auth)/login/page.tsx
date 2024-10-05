@@ -34,7 +34,6 @@ const Login = () => {
                 password: values.password,
             }),
         });
-        console.log(res.ok);
 
         if (res.ok) {
             router.push('/dashboard');

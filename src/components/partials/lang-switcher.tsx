@@ -19,10 +19,9 @@ import {
 } from "@/components/ui/drawer";
 
 import useMediaQuery from "@/hooks/useMediaQuery";
-import { Locale } from "@/i18n/routing";
+import { Locale, routing, usePathname, useRouter } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import { useLocale, useTranslations } from "next-intl";
-import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 
 interface LanguageItem {
@@ -69,14 +68,17 @@ export default function LangSwitcher() {
     const router = useRouter();
     const pathname = usePathname();
 
+    const locales = routing.locales
+
     const [open, setOpen] = useState(false)
 
     const isDesktop = useMediaQuery("(min-width: 768px)")
     const t = useTranslations('settings.lang')
 
     const handleChangeLang = (code: Locale) => {
-        const path = pathname.replace(`/${locale}`, `/${code}`);
-        router.replace(path);
+        router.replace(pathname, {
+            locale: code
+        });
     }
 
     return isDesktop ? (
@@ -100,8 +102,8 @@ export default function LangSwitcher() {
                     </DialogDescription>
                 </DialogHeader>
                 <div>
-                    {mockData.map((item, index) => (
-                        <LanguageItem key={index} code={item.code} currentLang={locale} handleChangeLang={handleChangeLang} />
+                    {locales.map((item, index) => (
+                        <LanguageItem key={index} code={item} currentLang={locale} handleChangeLang={handleChangeLang} />
                     ))}
                 </div>
             </DialogContent>

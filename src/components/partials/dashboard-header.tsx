@@ -2,9 +2,9 @@
 
 import { Link } from '@/i18n/routing';
 import { useEffect } from 'react';
-import ExitButton from '../exit-button';
-import LangSwitcher from '../lang-switcher';
-import ThemeSwitcher from '../theme-switcher';
+import ExitButton from './exit-button';
+import LangSwitcher from './lang-switcher';
+import ThemeSwitcher from './theme-switcher';
 
 export default function DashboardHeader() {
 

@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils"
 import { LucideIcon } from "lucide-react"
 import { useLocale } from "next-intl"
 import { usePathname } from "next/navigation"
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip"
 
 interface NavProps {
     isCollapsed: boolean
@@ -33,20 +34,27 @@ export default function Nav({ isCollapsed, links }: NavProps) {
             <nav className='grid gap-1 px-2 group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2'>
                 {links.map((link, index) =>
                     isCollapsed ? (
-                        <Link
-                            key={index}
-                            href={link.href}
-                            className={cn(
-                                buttonVariants({ variant: link.variant, size: "icon" }),
-                                "h-9 w-9",
-                                "dark:hover:bg-muted dark:hover:text-white",
-                                "hover:bg-neutral-200 hover:text-neutral-900",
-                                currentPath === link.path && "dark:bg-muted dark:text-muted-foreground bg-neutral-200 text-neutral-500"
-                            )}
-                        >
-                            <link.icon className='h-4 w-4' />
-                            <span className='sr-only'>{link.title}</span>
-                        </Link>
+                        <Tooltip key={index} delayDuration={0}>
+                            <TooltipTrigger asChild>
+                                <Link
+                                    key={index}
+                                    href={link.href}
+                                    className={cn(
+                                        buttonVariants({ variant: link.variant, size: "icon" }),
+                                        "h-9 w-9",
+                                        "dark:hover:bg-muted dark:hover:text-white",
+                                        "hover:bg-neutral-200 hover:text-neutral-900",
+                                        currentPath === link.path && "dark:bg-muted dark:text-muted-foreground bg-neutral-200 text-neutral-500"
+                                    )}
+                                >
+                                    <link.icon className='h-4 w-4' />
+                                    <span className='sr-only'>{link.title}</span>
+                                </Link>
+                            </TooltipTrigger>
+                            <TooltipContent side='right' className='flex items-center gap-4 rounded-lg'>
+                                {link.title}
+                            </TooltipContent>
+                        </Tooltip>
                     ) : (
                         <Link
                             key={index}

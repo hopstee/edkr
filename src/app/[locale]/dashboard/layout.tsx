@@ -3,6 +3,7 @@
 import DashboardHeader from "@/components/partials/dashboard-header";
 import Nav from "@/components/partials/nav";
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import { Archive, ArchiveX, File, Inbox, Send, Trash2 } from "lucide-react";
 import { useState } from "react";
@@ -15,13 +16,13 @@ export default function DashboardLayout({
     const [isCollapsed, setIsCollapsed] = useState(false)
 
     return (
-        <div>
-            <div className='max-md:block hidden' >
-                No content
-            </div>
-            <div className='h-screen md:block hidden'>
+        <TooltipProvider delayDuration={0}>
+            <div className='h-screen'>
                 <DashboardHeader />
-                <div className='h-[calc(100%-65px)] overflow-hidden'>
+                <div className='max-md:flex hidden h-screen w-full items-center justify-center' >
+                    No content
+                </div>
+                <div className='h-[calc(100%-65px)] overflow-hidden md:block hidden'>
                     <ResizablePanelGroup
                         direction='horizontal'
                         className='flex w-full data-[panel-group-direction=vertical]:flex-col h-full items-stretch'
@@ -93,6 +94,6 @@ export default function DashboardLayout({
                     </ResizablePanelGroup>
                 </div>
             </div>
-        </div>
+        </TooltipProvider>
     )
 }

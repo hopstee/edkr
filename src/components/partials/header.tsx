@@ -1,23 +1,22 @@
 'use client'
 
 import useAuth from '@/hooks/useAuth';
-import { Link } from '@/i18n/routing';
+import { Link, usePathname } from '@/i18n/routing';
 import { BriefcaseBusiness, Hammer, User } from 'lucide-react';
-import { useLocale, useTranslations } from 'next-intl';
-import { usePathname } from 'next/navigation';
+import { useTranslations } from 'next-intl';
+import { } from 'next/navigation';
 import { twMerge } from 'tailwind-merge';
-import AdminButton from '../admin-button';
-import LangSwitcher from '../lang-switcher';
-import ThemeSwitcher from '../theme-switcher';
+import AdminButton from './admin-button';
+import LangSwitcher from './lang-switcher';
+import ThemeSwitcher from './theme-switcher';
 
 export default function Header() {
     const pathname = usePathname()
-    const locale = useLocale()
     const t = useTranslations('navigation')
 
     const isLoggedIn = useAuth()
 
-    const currentPath = pathname.replace(`/${locale}`, '')?.split('/')[1]
+    const currentPath = pathname?.split('/')[1]
 
     return (
         <header className='sticky top-0 w-full p-5 z-50 max-w-[1220px] mx-auto'>
