@@ -1,10 +1,12 @@
 'use client'
 
+import useAuth from '@/hooks/useAuth';
 import { Link } from '@/i18n/routing';
 import { BriefcaseBusiness, Hammer, User } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import { twMerge } from 'tailwind-merge';
+import AdminButton from '../admin-button';
 import LangSwitcher from '../lang-switcher';
 import ThemeSwitcher from '../theme-switcher';
 
@@ -12,6 +14,8 @@ export default function Header() {
     const pathname = usePathname()
     const locale = useLocale()
     const t = useTranslations('navigation')
+
+    const isLoggedIn = useAuth()
 
     const currentPath = pathname.replace(`/${locale}`, '')?.split('/')[1]
 
@@ -101,6 +105,7 @@ export default function Header() {
                     <div className='flex items-center gap-3'>
                         <LangSwitcher />
                         <ThemeSwitcher />
+                        {isLoggedIn && <AdminButton />}
                     </div>
                 </div>
             </div>

@@ -8,7 +8,7 @@ export default function Info() {
                 <div className='flex flex-col items-center'>
                     <div className='relative size-32 md:size-64'>
                         <Image
-                            src='/images/photo-1.jpg'
+                            src='/assets/images/photo-1.jpg'
                             alt='Edik Krivovyaschuk photo'
                             fill
                             className='rounded-full object-cover object-center'

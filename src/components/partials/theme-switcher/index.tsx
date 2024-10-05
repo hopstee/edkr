@@ -26,7 +26,7 @@ export default function ThemeSwitcher() {
             className={cn(
                 'rounded-xl',
                 theme === 'light' && 'bg-blue-300/30 hover:bg-blue-400/30',
-                theme === 'dark' && 'bg-orange-900/30 hover:bg-orange-800/30',
+                theme === 'dark' && 'bg-orange-900/30 hover:bg-orange-700/30',
             )}
         >
             {theme === 'light' ? <Moon className='h-4 w-4 text-blue-400' /> : <Sun className='h-4 w-4 text-orange-400' />}

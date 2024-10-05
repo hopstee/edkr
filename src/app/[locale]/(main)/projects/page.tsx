@@ -3,7 +3,7 @@ import ProjectsView from "@/views/projects";
 const projects = [
     {
         title: "Marketing product with web3 support",
-        image: "/images/projects/crossnetics.png",
+        image: "/assets/images/projects/crossnetics.png",
         link: "https://crossnetics.io/",
         techstack: [
             {
@@ -22,7 +22,7 @@ const projects = [
     },
     {
         title: "CRM system for telecommunications, banking, and crypto trading platforms",
-        image: "/images/projects/finbuilder.png",
+        image: "/assets/images/projects/finbuilder.png",
         link: "https://www.finbuilder.com/",
         techstack: [
             {
@@ -35,7 +35,7 @@ const projects = [
     },
     {
         title: "System for generating and managing tax exemption certificates",
-        image: "/images/projects/xmpt.png",
+        image: "/assets/images/projects/xmpt.png",
         link: "https://xmpt.us/",
         techstack: [
             {
@@ -48,7 +48,7 @@ const projects = [
     },
     {
         title: "System for electric vehicle charging stations",
-        image: "/images/projects/evpoint.png",
+        image: "/assets/images/projects/evpoint.png",
         link: "https://evpoint.md",
         techstack: [
             {

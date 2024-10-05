@@ -1,8 +1,8 @@
 import { serialize } from 'cookie';
 import * as jose from 'jose';
 
-export async function POST(req: Request) {
-    const { username, password } = await req.json();
+export async function POST(request: Request) {
+    const { username, password } = await request.json();
 
     if (username === process.env.ADMIN_USERNAME && password === process.env.ADMIN_PASSWORD) {
         const token = await new jose.SignJWT({ username })
@@ -17,7 +17,7 @@ export async function POST(req: Request) {
                     httpOnly: true,
                     secure: process.env.NODE_ENV === 'production',
                     sameSite: 'strict',
-                    maxAge: 3600,
+                    maxAge: 3600 * 24,
                     path: '/',
                 }),
             },
