@@ -13,8 +13,8 @@ export default function DashboardHeader() {
     }, [])
 
     return (
-        <header className='w-full border-b border-neutral-200 dark:border-neutral-800'>
-            <div className='p-3 bg-neutral-100 dark:bg-neutral-900'>
+        <header className='w-full border-b-2 border-timberwolf-dark dark:border-eerie-light'>
+            <div className='p-3 bg-timberwolf-light dark:bg-eerie-dark'>
                 <div className='flex items-center justify-between'>
                     <div>
                         <div className='flex'>

@@ -21,7 +21,7 @@ const projects = [
         ],
     },
     {
-        title: "CRM system for telecommunications, banking, and crypto trading platforms",
+        title: "CRM system for telecom, banking, and crypto trading platforms",
         image: "/assets/images/projects/finbuilder.png",
         link: "https://www.finbuilder.com/",
         techstack: [

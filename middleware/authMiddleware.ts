@@ -6,6 +6,7 @@ export function withAuthMiddleware(middleware: CustomMiddleware) {
     return async (request: NextRequest, event: NextFetchEvent) => {
         const token = request.cookies.get('accessToken');
         const protectedPath = request.url.includes('/dashboard')
+        const authPath = request.url.includes('/login')
 
         if (protectedPath) {
             if (!token?.value) {
@@ -23,6 +24,10 @@ export function withAuthMiddleware(middleware: CustomMiddleware) {
 
         if (!token?.value && protectedPath) {
             return NextResponse.redirect(new URL('/login', request.url));
+        }
+
+        if (token?.value && authPath) {
+            return NextResponse.redirect(new URL('/dashboard', request.url));
         }
 
         return middleware(request, event, NextResponse.next());

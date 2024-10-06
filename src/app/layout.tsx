@@ -1,21 +1,23 @@
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
-import localFont from "next/font/local";
+import { Montserrat } from "next/font/google";
 import { cookies } from "next/headers";
 import NextTopLoader from "nextjs-toploader";
 import "./globals.css";
 
-const geistSans = localFont({
-    src: "./fonts/GeistVF.woff",
-    variable: "--font-geist-sans",
-    weight: "100 900",
-});
-const geistMono = localFont({
-    src: "./fonts/GeistMonoVF.woff",
-    variable: "--font-geist-mono",
-    weight: "100 900",
-});
+// const geistSans = localFont({
+//     src: "./fonts/GeistVF.woff",
+//     variable: "--font-geist-sans",
+//     weight: "100 900",
+// });
+// const geistMono = localFont({
+//     src: "./fonts/GeistMonoVF.woff",
+//     variable: "--font-geist-mono",
+//     weight: "100 900",
+// });
+
+export const raleway = Montserrat({ subsets: ['cyrillic-ext', 'latin-ext'] })
 
 export const metadata: Metadata = {
     title: "Edik Krivovyaschuk - Fullstack Developer",
@@ -39,8 +41,9 @@ export default function RootLayout({
         <html lang={params.locale} >
             <body
                 className={cn(
-                    geistSans.variable,
-                    geistMono.variable,
+                    raleway.className,
+                    // geistSans.variable,
+                    // geistMono.variable,
                     'text-eerie-light dark:text-timberwolf',
                     'antialiased bg-timberwolf dark:bg-eerie bg-[radial-gradient(#C7CABA_1px,transparent_1px)] dark:bg-[radial-gradient(#3D3D3D8f_1px,transparent_1px)] [background-size:20px_20px]'
                 )}

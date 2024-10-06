@@ -4,11 +4,10 @@ import DashboardHeader from "@/components/partials/dashboard-header";
 import Nav from "@/components/partials/nav";
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import useMediaQuery from "@/hooks/useMediaQuery";
 import { cn } from "@/lib/utils";
 import { Briefcase, Hammer, Layers, User } from "lucide-react";
 import { useState } from "react";
-
-// #0C0C0C
 
 export default function DashboardLayout({
     children,
@@ -17,27 +16,26 @@ export default function DashboardLayout({
 }>) {
     const [isCollapsed, setIsCollapsed] = useState(false)
 
+    const isDesktop = useMediaQuery("(min-width: 768px)")
+
     return (
         <TooltipProvider delayDuration={0}>
             <div className='h-screen'>
                 <DashboardHeader />
-                <div className='max-md:flex hidden h-screen w-full items-center justify-center' >
-                    No content
-                </div>
-                <div className='h-[calc(100%-65px)] overflow-hidden md:block hidden'>
+                <div className='h-[calc(100%-66px)] overflow-hidden'>
                     <ResizablePanelGroup
                         direction='horizontal'
                         className='flex w-full data-[panel-group-direction=vertical]:flex-col h-full items-stretch'
                     >
                         <ResizablePanel
-                            defaultSize={20}
+                            defaultSize={isDesktop ? 20 : 2}
                             collapsible={true}
                             collapsedSize={2}
-                            minSize={15}
-                            maxSize={20}
+                            minSize={isDesktop ? 15 : 2}
+                            maxSize={isDesktop ? 20 : 2}
                             onCollapse={() => setIsCollapsed(true)}
                             onResize={() => setIsCollapsed(false)}
-                            className={cn(isCollapsed && 'min-w-[50px]', 'bg-neutral-100 dark:bg-neutral-900')}
+                            className={cn(isCollapsed && 'min-w-[50px]', 'bg-timberwolf-light dark:bg-eerie-dark')}
                         >
                             <Nav
                                 isCollapsed={isCollapsed}
@@ -69,7 +67,10 @@ export default function DashboardLayout({
                                 ]}
                             />
                         </ResizablePanel>
-                        <ResizableHandle withHandle />
+                        {isDesktop && <ResizableHandle
+                            withHandle
+                            className='bg-timberwolf-dark dark:bg-eerie-light w-0.5'
+                        />}
                         <ResizablePanel defaultSize={80}>
                             <div className='flex h-full items-center justify-center p-6'>
                                 {children}

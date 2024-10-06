@@ -24,5 +24,15 @@
     },
     "buttons": {
         "contactMe": "Contact me"
+    },
+    "auth": {
+        "login": {
+            "username": "Username",
+            "password": "Password",
+            "buttons": {
+                "login": "Login",
+                "back": "Back"
+            }
+        }
     }
 }

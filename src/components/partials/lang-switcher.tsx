@@ -53,8 +53,8 @@ const LanguageItem: React.FC<LanguageItemProps> = ({ code, handleChangeLang, cur
         <div
             onClick={() => handleChangeLang(code)}
             className={cn(
-                'flex items-center justify-between px-4 py-2 hover:bg-timberwolf-dark dark:hover:bg-eerie-light rounded-md cursor-pointer',
-                currentLang === code && 'bg-timberwolf-dark dark:bg-eerie-light'
+                'flex items-center justify-between px-4 py-2 hover:bg-timberwolf-mid dark:hover:bg-eerie-light rounded-md cursor-pointer',
+                currentLang === code && 'bg-timberwolf-mid dark:bg-eerie-light'
             )}
         >
             <span className='text-base text-eerie dark:text-timberwolf'>{t(`${code}`)}</span>
@@ -88,13 +88,13 @@ export default function LangSwitcher() {
                     variant='ghost'
                     size='icon'
                     className={cn(
-                        'transition-all rounded-xl bg-timberwolf-dark/60 dark:bg-eerie-light/60 hover:bg-timberwolf-dark dark:hover:bg-eerie-light',
+                        'transition-all rounded-xl bg-timberwolf-mid dark:bg-eerie-light/60 hover:bg-timberwolf-dark dark:hover:bg-eerie-light',
                     )}
                 >
                     {locale}
                 </Button>
             </DialogTrigger>
-            <DialogContent className='sm:max-w-[425px] p-5 !rounded-xl backdrop-blur-md bg-timberwolf-dark/60 dark:bg-eerie-light/60 border-4 border-timberwolf-dark dark:border-eerie-light'>
+            <DialogContent className='sm:max-w-[425px] p-5 !rounded-xl backdrop-blur-md bg-timberwolf-light dark:bg-eerie-mid-light border-2 border-timberwolf-dark dark:border-eerie-light'>
                 <DialogHeader>
                     <DialogTitle className='text-eerie dark:text-timberwolf'>
                         {t('title')}
@@ -117,13 +117,13 @@ export default function LangSwitcher() {
                     variant='ghost'
                     size='icon'
                     className={cn(
-                        'transition-all rounded-xl bg-timberwolf-dark/60 dark:bg-eerie-light/60 hover:bg-timberwolf-dark dark:hover:bg-eerie-light',
+                        'transition-all rounded-xl bg-timberwolf-mid dark:bg-eerie-light/60 hover:bg-timberwolf-dark dark:hover:bg-eerie-light',
                     )}
                 >
                     {locale}
                 </Button>
             </DrawerTrigger>
-            <DrawerContent className='rounded-t-xl backdrop-blur-md bg-timberwolf-dark/60 dark:bg-eerie-light/60 border-4 border-timberwolf-dark dark:border-eerie-light'>
+            <DrawerContent className='rounded-t-xl bg-timberwolf-light dark:bg-eerie-mid-light border-2 border-timberwolf-dark dark:border-eerie-light'>
                 <DrawerHeader className='text-left'>
                     <DrawerTitle className='text-eerie dark:text-timberwolf'>
                         {t('title')}

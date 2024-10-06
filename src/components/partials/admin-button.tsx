@@ -1,16 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarTrigger } from "@/components/ui/menubar";
-import { Link, usePathname, useRouter } from "@/i18n/routing";
+import { Link, useRouter } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import { LayoutDashboard, LogOut, Shield } from "lucide-react";
 
-export default function AdminButton() {
+interface AdminButtonProps {
+    checkAuth: () => Promise<void>;
+}
+
+export default function AdminButton({ checkAuth }: AdminButtonProps) {
     const router = useRouter();
-    const pathname = usePathname();
 
     const handleSignOut = async () => {
         await fetch('/api/logout', { method: 'POST', credentials: 'include' })
-        router.push(pathname);
+        checkAuth()
+        router.refresh();
     }
 
     return (
@@ -21,7 +25,7 @@ export default function AdminButton() {
                         variant='ghost'
                         size='icon'
                         className={cn(
-                            'bg-ochre/60 hover:bg-ochre/80 dark:hover:bg-ochre/80 text-eerie-light dark:text-timberwolf-dark',
+                            'bg-ochre/60 hover:bg-ochre/70 dark:hover:bg-ochre/70 text-eerie-light dark:text-timberwolf-mid',
                             'data-[state=open]:bg-ochre focus:bg-ochre0bg-ochre',
                             'rounded-xl cursor-pointer p-0',
                         )}
@@ -29,8 +33,8 @@ export default function AdminButton() {
                         <Shield className='w-4 h-4' />
                     </Button>
                 </MenubarTrigger>
-                <MenubarContent align='end' className='bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl'>
-                    <MenubarItem className='rounded-lg hover:bg-neutral-300/40 dark:hover:bg-neutral-700/40'>
+                <MenubarContent align='end' className='bg-timberwolf-mid-light dark:bg-eerie-mid-light border-2 border-timberwolf-dark dark:border-eerie-light rounded-xl'>
+                    <MenubarItem className='rounded-lg hover:!bg-timberwolf dark:hover:!bg-eerie-light'>
                         <Link href='/dashboard' className='w-full flex items-center'>
                             <LayoutDashboard className='w-4 h-4 mr-2' />
                             Dashboard
@@ -40,7 +44,7 @@ export default function AdminButton() {
                         onClick={() => {
                             handleSignOut()
                         }}
-                        className='cursor-pointer text-red-600 focus:bg-red-400/30 focus:text-red-500 dark:hover:bg-red-700/40 rounded-lg'
+                        className='cursor-pointer text-coral focus:bg-coral-dark/30 focus:text-coral dark:hover:bg-coral-dark/30 rounded-lg'
                     >
                         <LogOut className='w-4 h-4 mr-2' />
                         Logout

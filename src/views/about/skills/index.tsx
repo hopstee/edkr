@@ -92,10 +92,11 @@ const SkillCategoryWidget: React.FC<SkillCategoryProps> = ({ title, items }) => 
     return (
         <div className={cn(
             'backdrop-blur-md',
-            'bg-timberwolf-dark/60 dark:bg-eerie-light/60 border-4 border-timberwolf-dark dark:border-eerie-light',
+            'bg-timberwolf-mid-light dark:bg-eerie-mid-light border-2 border-timberwolf-dark dark:border-eerie-light',
+            // 'bg-timberwolf-mid dark:bg-eerie-mid-light border-2 border-timberwolf-dark dark:border-eerie-light',
             'rounded-xl h-full cursor-grab active:cursor-grabbing active:rotate-2 active:scale-95 transition-all duration-300 select-none',
         )}>
-            <div className='p-3 border-b-4 border-timberwolf-dark dark:border-eerie-light'>
+            <div className='p-3 border-b-2 border-timberwolf-dark dark:border-eerie-light'>
                 <h6>{title}</h6>
             </div>
             <div className='grid grid-cols-[repeat(auto-fill,minmax(80px,1fr))] p-5 gap-5 min-w-[300px]'>
@@ -110,7 +111,7 @@ const SkillCategoryWidget: React.FC<SkillCategoryProps> = ({ title, items }) => 
                             ) : (
                                 <Image src={item.src} alt={item.alt} width={32} height={32} className='mb-2' />
                             )}
-                            <span className='text-xs font-medium text-neutral-700 dark:text-neutral-300 text-center'>{item.text}</span>
+                            <span className='text-xs font-medium text-center'>{item.text}</span>
                         </div>
                     </div>
                 ))}
@@ -147,15 +148,15 @@ export default function Skills() {
                     <CarouselPrevious
                         className={cn(
                             'absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/4 md:-translate-x-1/2 border-4',
-                            'bg-timberwolf hover:bg-timberwolf-dark border-timberwolf-dark text-eerie/60',
-                            'dark:bg-eerie dark:hover:bg-eerie-light dark:border-eerie-light dark:text-timberwolf/70',
+                            'bg-timberwolf-mid-light hover:bg-timberwolf border-timberwolf-dark text-eerie/60',
+                            'dark:bg-eerie dark:hover:bg-eerie-mid-light dark:border-eerie-light dark:text-timberwolf/70',
                         )}
                     />
                     <CarouselNext
                         className={cn(
                             'absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-1/4 md:translate-x-1/2 border-4',
-                            'bg-timberwolf hover:bg-timberwolf-dark border-timberwolf-dark text-eerie/60',
-                            'dark:bg-eerie dark:hover:bg-eerie-light dark:border-eerie-light dark:text-timberwolf/70',
+                            'bg-timberwolf-mid-light hover:bg-timberwolf border-timberwolf-dark text-eerie/60',
+                            'dark:bg-eerie dark:hover:bg-eerie-mid-light dark:border-eerie-light dark:text-timberwolf/70',
                         )}
                     />
                 </Carousel>

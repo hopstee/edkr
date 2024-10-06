@@ -40,16 +40,16 @@ export default function Nav({ isCollapsed, links }: NavProps) {
                                     className={cn(
                                         buttonVariants({ variant: 'ghost', size: "icon" }),
                                         "h-9 w-9",
-                                        "dark:hover:bg-muted dark:hover:text-white",
-                                        "hover:bg-neutral-200 hover:text-neutral-900",
-                                        currentPath === link.path && "dark:bg-muted dark:text-muted-foreground bg-neutral-200 text-neutral-500"
+                                        "dark:text-timberwolf dark:hover:bg-eerie-mid-light dark:hover:text-timberwolf",
+                                        "text-eerie hover:bg-timberwolf hover:text-eerie",
+                                        currentPath === link.path && "dark:bg-eerie-mid-light dark:text-timberwolf/80 bg-timberwolf text-eerie/70"
                                     )}
                                 >
                                     <link.icon className='h-4 w-4' />
                                     <span className='sr-only'>{link.title}</span>
                                 </Link>
                             </TooltipTrigger>
-                            <TooltipContent side='right' className='flex items-center gap-4 rounded-lg'>
+                            <TooltipContent side='right' className='flex items-center gap-4 rounded-lg bg-timberwolf-light dark:bg-eerie-dark border-2 border-timberwolf-mid dark:border-eerie-light border-solid'>
                                 {link.title}
                             </TooltipContent>
                         </Tooltip>
@@ -59,10 +59,10 @@ export default function Nav({ isCollapsed, links }: NavProps) {
                             href={link.href}
                             className={cn(
                                 buttonVariants({ variant: 'ghost', size: "sm" }),
-                                "dark:text-white dark:hover:bg-muted dark:hover:text-white",
-                                "text-neutral-900 hover:bg-neutral-200 hover:text-neutral-900",
+                                "dark:text-timberwolf dark:hover:bg-eerie-mid-light dark:hover:text-timberwolf",
+                                "text-eerie hover:bg-timberwolf hover:text-eerie",
                                 "justify-start",
-                                currentPath === link.path && "dark:bg-muted dark:text-white bg-neutral-200 text-neutral-900"
+                                currentPath === link.path && "dark:bg-eerie-mid-light dark:text-timberwolf/80 bg-timberwolf text-eerie/70"
                             )}
                         >
                             <link.icon className='mr-2 h-4 w-4' />

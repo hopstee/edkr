@@ -4,7 +4,6 @@ import useAuth from '@/hooks/useAuth';
 import { Link, usePathname } from '@/i18n/routing';
 import { cn } from '@/lib/utils';
 import { links } from '@/shared/constants/nav-links';
-import { User } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { } from 'next/navigation';
 import AdminButton from './admin-button';
@@ -15,13 +14,13 @@ export default function Header() {
     const pathname = usePathname()
     const t = useTranslations('navigation')
 
-    const isLoggedIn = useAuth()
+    const { isLoggedIn, checkAuth } = useAuth()
 
     const currentPath = pathname?.split('/')[1]
 
     return (
         <header className='sticky top-0 w-full p-2 md:p-5 z-50 max-w-[1220px] mx-auto'>
-            <div className='p-3 rounded-xl backdrop-blur-md bg-timberwolf-dark/60 dark:bg-eerie-light/60 border-4 border-timberwolf-dark dark:border-eerie-light'>
+            <div className='p-3 rounded-xl backdrop-blur-md bg-timberwolf-mid-light/90 dark:bg-eerie-mid-light/90'>
                 <div className='flex items-center justify-between'>
                     <div>
                         <div className='flex'>
@@ -40,12 +39,12 @@ export default function Header() {
                                     <span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75'></span>
                                     <span className='relative inline-flex rounded-full size-2 bg-green-500'></span>
                                 </span>
-                                <p className='text-xs font-thin'>
+                                <p className='text-xs font-normal'>
                                     Available for work
                                 </p>
                             </div>
                             <span className='text-xs'>/</span>
-                            <p className='text-xs font-thin'>
+                            <p className='text-xs font-normal'>
                                 Remote
                             </p>
                         </div>
@@ -59,12 +58,12 @@ export default function Header() {
                                         <Link
                                             href={link.href}
                                             className={cn(
-                                                'nav-item transition-all hover:bg-timberwolf-dark dark:hover:bg-eerie-light px-3 rounded-lg min-w-20 h-12 flex flex-col items-center justify-center',
-                                                currentPath === link.path && 'bg-timberwolf-dark dark:bg-eerie-light text-ochre dark:text-ochre'
+                                                'nav-item transition-all hover:bg-timberwolf dark:hover:bg-eerie-light px-3 rounded-lg min-w-20 h-12 flex flex-col items-center justify-center',
+                                                currentPath === link.path && 'bg-timberwolf dark:bg-eerie-light text-ochre dark:text-ochre'
                                             )}
                                         >
-                                            <User className='w-5 h-5' />
-                                            <p className='text-xs font-light mt-1'>
+                                            <link.icon className='w-5 h-5' />
+                                            <p className='text-xs font-normal mt-1'>
                                                 {t(link.label)}
                                             </p>
                                         </Link>
@@ -77,7 +76,7 @@ export default function Header() {
                     <div className='flex items-center gap-3'>
                         <LangSwitcher />
                         <ThemeSwitcher />
-                        {isLoggedIn && <AdminButton />}
+                        {isLoggedIn && <AdminButton checkAuth={checkAuth} />}
                     </div>
                 </div>
             </div>

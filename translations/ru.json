@@ -24,5 +24,15 @@
     },
     "buttons": {
         "contactMe": "Напиши мне"
+    },
+    "auth": {
+        "login": {
+            "username": "Имя пользователя",
+            "password": "Пароль",
+            "buttons": {
+                "login": "Войти",
+                "back": "Назад"
+            }
+        }
     }
 }
