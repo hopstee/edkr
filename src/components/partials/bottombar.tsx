@@ -1,5 +1,6 @@
 'use client'
 
+import useMediaQuery from '@/hooks/useMediaQuery';
 import { Link, usePathname } from '@/i18n/routing';
 import { cn } from '@/lib/utils';
 import { links } from '@/shared/constants/nav-links';
@@ -11,7 +12,9 @@ export default function BottomBar() {
 
     const currentPath = pathname.split('/')[1]
 
-    return (
+    const isDesktop = useMediaQuery('(min-width: 768px)')
+
+    return !isDesktop && (
         <div className='fixed bottom-0 w-full p-2 md:p-5 z-50 block md:hidden'>
             <div className='p-1 rounded-xl backdrop-blur-xl bg-timberwolf-mid-light/90 dark:bg-eerie-mid-light/90 shadow-md shadow-eerie-dark/20 dark:shadow-eerie-dark/80'>
                 <div className='w-full flex space-x-5'>

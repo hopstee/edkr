@@ -8,9 +8,9 @@ export default async function MainLayout({
 }>) {
 
     return (
-        <div className='relative min-h-screen w-full'>
+        <div className='relative h-full w-full flex flex-col'>
             <Header />
-            <div className='min-h-full overflow-y-auto'>
+            <div className='flex-1 overflow-y-auto'>
                 <div className='max-w-[1220px] mx-auto min-h-full px-2 md:px-5'>
                     <div className='pb-16 md:pb-5'>
                         <main className='pb-6 md:pb-0'>

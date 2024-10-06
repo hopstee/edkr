@@ -9,36 +9,19 @@ import {
     DialogTitle,
     DialogTrigger
 } from "@/components/ui/dialog";
-import {
-    Drawer,
-    DrawerContent,
-    DrawerDescription,
-    DrawerHeader,
-    DrawerTitle,
-    DrawerTrigger
-} from "@/components/ui/drawer";
 
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { Locale, routing, usePathname, useRouter } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
+import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from "../ui/drawer";
+import { ScrollArea } from "../ui/scroll-area";
 
 interface LanguageItem {
     id: number;
     code: Locale;
 }
-
-const mockData: LanguageItem[] = [
-    {
-        id: 1,
-        code: 'en',
-    },
-    {
-        id: 2,
-        code: 'ru',
-    },
-]
 
 interface LanguageItemProps {
     code: Locale;
@@ -76,8 +59,10 @@ export default function LangSwitcher() {
     const t = useTranslations('settings.lang')
 
     const handleChangeLang = (code: Locale) => {
-        router.replace(pathname, {
-            locale: code
+        setOpen(false)
+        router.push(pathname, {
+            locale: code,
+            scroll: false,
         });
     }
 
@@ -94,8 +79,8 @@ export default function LangSwitcher() {
                     {locale}
                 </Button>
             </DialogTrigger>
-            <DialogContent className='sm:max-w-[425px] p-5 !rounded-xl backdrop-blur-md bg-timberwolf-light dark:bg-eerie-mid-light border-2 border-timberwolf-dark dark:border-eerie-light'>
-                <DialogHeader>
+            <DialogContent className='sm:max-w-[425px] px-0 !rounded-xl backdrop-blur-md bg-timberwolf-light dark:bg-eerie-mid-light border-2 border-timberwolf-dark dark:border-eerie-light'>
+                <DialogHeader className='px-5'>
                     <DialogTitle className='text-eerie dark:text-timberwolf'>
                         {t('title')}
                     </DialogTitle>
@@ -103,11 +88,13 @@ export default function LangSwitcher() {
                         {t('description')}
                     </DialogDescription>
                 </DialogHeader>
-                <div className='space-y-2'>
-                    {locales.map((item, index) => (
-                        <LanguageItem key={index} code={item} currentLang={locale} handleChangeLang={handleChangeLang} />
-                    ))}
-                </div>
+                <ScrollArea className='max-h-96 px-5 flex flex-coll overflow-y-auto'>
+                    <div className='space-y-2'>
+                        {locales.map((item, index) => (
+                            <LanguageItem key={index} code={item} currentLang={locale} handleChangeLang={handleChangeLang} />
+                        ))}
+                    </div>
+                </ScrollArea>
             </DialogContent>
         </Dialog>
     ) : (
@@ -123,7 +110,10 @@ export default function LangSwitcher() {
                     {locale}
                 </Button>
             </DrawerTrigger>
-            <DrawerContent className='rounded-t-xl bg-timberwolf-light dark:bg-eerie-mid-light border-2 border-timberwolf-dark dark:border-eerie-light'>
+            <DrawerContent className={cn(
+                'rounded-t-xl bg-timberwolf-light dark:bg-eerie-mid-light border-t-2 border-timberwolf-dark dark:border-eerie-light',
+                'mt-0 h-fit fixed bottom-0 left-0 right-0 outline-none'
+            )}>
                 <DrawerHeader className='text-left'>
                     <DrawerTitle className='text-eerie dark:text-timberwolf'>
                         {t('title')}
@@ -132,16 +122,18 @@ export default function LangSwitcher() {
                         {t('description')}
                     </DrawerDescription>
                 </DrawerHeader>
-                <div className='px-5 pb-5 space-y-2'>
-                    {mockData.map((item, index) => (
-                        <LanguageItem
-                            key={index}
-                            code={item.code}
-                            currentLang={locale}
-                            handleChangeLang={handleChangeLang}
-                        />
-                    ))}
-                </div>
+                <ScrollArea className='max-h-96 flex flex-coll overflow-y-auto'>
+                    <div className='px-5 pb-5 space-y-2'>
+                        {locales.map((item, index) => (
+                            <LanguageItem
+                                key={index}
+                                code={item}
+                                currentLang={locale}
+                                handleChangeLang={handleChangeLang}
+                            />
+                        ))}
+                    </div>
+                </ScrollArea>
             </DrawerContent>
         </Drawer>
     )
