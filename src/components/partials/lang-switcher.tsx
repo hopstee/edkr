@@ -132,7 +132,7 @@ export default function LangSwitcher() {
                         {t('description')}
                     </DrawerDescription>
                 </DrawerHeader>
-                <div className='px-5 pb-5'>
+                <div className='px-5 pb-5 space-y-2'>
                     {mockData.map((item, index) => (
                         <LanguageItem
                             key={index}

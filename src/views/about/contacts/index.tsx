@@ -47,7 +47,10 @@ export default function Contacts() {
                 <Link href='mailto:hopsteee@gmail.com' target='_blank'>
                     <Button
                         size='default'
-                        className='backdrop-blur-md rounded-xl border-4 border-ochre bg-ochre/60 hover:bg-ochre dark:hover:bg-ochre text-eerie-light dark:text-timberwolf-mid px-4 py-2 h-12'
+                        className={cn(
+                            'backdrop-blur-md rounded-xl border-4 border-ochre bg-ochre/60 hover:bg-ochre dark:hover:bg-ochre px-4 py-2 h-12',
+                            'text-ochre-text hover:text-eerie-light dark:text-ochre-light-text dark:hover:text-timberwolf-mid'
+                        )}
                     >
                         <Mail className='size-5 mr-2' />
                         {t('contactMe')}

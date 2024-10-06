@@ -95,6 +95,8 @@ const config: Config = {
                 ochre: '#DB7C26',
                 'ochre-dark': '#C16E1F',
                 'ochre-light': '#E08C3E',
+                'ochre-text': '#88490F',
+                'ochre-light-text': '#F28B2A',
             },
             borderRadius: {
                 lg: 'var(--radius)',

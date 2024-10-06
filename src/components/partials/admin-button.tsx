@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarTrigger } from "@/components/ui/menubar";
 import { Link, useRouter } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
-import { LayoutDashboard, LogOut, Shield } from "lucide-react";
+import { LayoutDashboard, LogOut } from "lucide-react";
 
 interface AdminButtonProps {
     checkAuth: () => Promise<void>;
@@ -30,7 +30,7 @@ export default function AdminButton({ checkAuth }: AdminButtonProps) {
                             'rounded-xl cursor-pointer p-0',
                         )}
                     >
-                        <Shield className='w-4 h-4' />
+                        <LayoutDashboard className='w-4 h-4' />
                     </Button>
                 </MenubarTrigger>
                 <MenubarContent align='end' className='bg-timberwolf-mid-light dark:bg-eerie-mid-light border-2 border-timberwolf-dark dark:border-eerie-light rounded-xl'>

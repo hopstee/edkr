@@ -24,7 +24,7 @@ export default function RootLayout({
     children: React.ReactNode;
     params: { locale: string };
 }>) {
-    const theme = cookies().get("__theme__")?.value || "dark";
+    const theme = cookies().get("__theme__")?.value || "system";
 
     return (
         <html lang={params.locale} >
