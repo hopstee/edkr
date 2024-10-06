@@ -17,7 +17,7 @@ import "./globals.css";
 //     weight: "100 900",
 // });
 
-export const raleway = Montserrat({ subsets: ['cyrillic-ext', 'latin-ext'] })
+const raleway = Montserrat({ subsets: ['cyrillic-ext', 'latin-ext'] })
 
 export const metadata: Metadata = {
     title: "Edik Krivovyaschuk - Fullstack Developer",
