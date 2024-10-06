@@ -35,7 +35,11 @@ export default function DashboardLayout({
                             maxSize={isDesktop ? 20 : 2}
                             onCollapse={() => setIsCollapsed(true)}
                             onResize={() => setIsCollapsed(false)}
-                            className={cn(isCollapsed && 'min-w-[50px]', 'bg-timberwolf-light dark:bg-eerie-dark')}
+                            className={cn(
+                                isCollapsed && 'min-w-[50px]',
+                                'bg-timberwolf-light dark:bg-eerie-dark',
+                                'max-md:border-r-2 max-md:border-timberwolf-dark max-md:dark:border-eerie-light'
+                            )}
                         >
                             <Nav
                                 isCollapsed={isCollapsed}

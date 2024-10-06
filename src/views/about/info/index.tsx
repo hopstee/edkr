@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import Contacts from '../contacts';
 
@@ -14,7 +15,10 @@ export default function Info() {
                             className='rounded-full object-cover object-center'
                         />
                         <div className='absolute -top-5 md:top-3 right-0 translate-x-1/4'>
-                            <div className='backdrop-blur-md bg-timberwolf-mid/60 dark:bg-eerie-mid/60 py-2 px-2 rounded-xl text-sm max-w-[150px] text-center'>
+                            <div className={cn(
+                                'backdrop-blur-md bg-timberwolf-mid/60 dark:bg-eerie-mid/60 py-2 px-2 rounded-xl text-sm max-w-[150px] text-center',
+                                'border-2 border-timberwolf-dark dark:border-eerie-light'
+                            )}>
                                 👨‍💻 work hard
                             </div>
                         </div>

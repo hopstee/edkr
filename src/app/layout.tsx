@@ -6,17 +6,6 @@ import { cookies } from "next/headers";
 import NextTopLoader from "nextjs-toploader";
 import "./globals.css";
 
-// const geistSans = localFont({
-//     src: "./fonts/GeistVF.woff",
-//     variable: "--font-geist-sans",
-//     weight: "100 900",
-// });
-// const geistMono = localFont({
-//     src: "./fonts/GeistMonoVF.woff",
-//     variable: "--font-geist-mono",
-//     weight: "100 900",
-// });
-
 const raleway = Montserrat({ subsets: ['cyrillic-ext', 'latin-ext'] })
 
 export const metadata: Metadata = {
@@ -42,8 +31,6 @@ export default function RootLayout({
             <body
                 className={cn(
                     raleway.className,
-                    // geistSans.variable,
-                    // geistMono.variable,
                     'text-eerie-light dark:text-timberwolf',
                     'antialiased bg-timberwolf dark:bg-eerie bg-[radial-gradient(#C7CABA_1px,transparent_1px)] dark:bg-[radial-gradient(#3D3D3D8f_1px,transparent_1px)] [background-size:20px_20px]'
                 )}

@@ -147,14 +147,14 @@ export default function Skills() {
                     </CarouselContent>
                     <CarouselPrevious
                         className={cn(
-                            'absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/4 md:-translate-x-1/2 border-4',
+                            'absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/4 md:-translate-x-1/2 border-2',
                             'bg-timberwolf-mid-light hover:bg-timberwolf border-timberwolf-dark text-eerie/60',
                             'dark:bg-eerie dark:hover:bg-eerie-mid-light dark:border-eerie-light dark:text-timberwolf/70',
                         )}
                     />
                     <CarouselNext
                         className={cn(
-                            'absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-1/4 md:translate-x-1/2 border-4',
+                            'absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-1/4 md:translate-x-1/2 border-2',
                             'bg-timberwolf-mid-light hover:bg-timberwolf border-timberwolf-dark text-eerie/60',
                             'dark:bg-eerie dark:hover:bg-eerie-mid-light dark:border-eerie-light dark:text-timberwolf/70',
                         )}
