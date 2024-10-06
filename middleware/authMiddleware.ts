@@ -8,22 +8,22 @@ export function withAuthMiddleware(middleware: CustomMiddleware) {
         const protectedPath = request.url.includes('/dashboard')
         const authPath = request.url.includes('/login')
 
-        if (protectedPath) {
-            if (!token?.value) {
-                return NextResponse.redirect(new URL('/login', request.url));
-            }
-
-            const decode = await jose.jwtVerify(token?.value as string, new TextEncoder().encode(process.env.JWT_SECRET));
-
-            if (decode) {
-                return middleware(request, event, NextResponse.next());
-            }
-
+        if (!token?.value && protectedPath) {
             return NextResponse.redirect(new URL('/login', request.url));
         }
 
-        if (!token?.value && protectedPath) {
-            return NextResponse.redirect(new URL('/login', request.url));
+        if (protectedPath) {
+            try {
+                await jose.jwtVerify(token?.value as string, new TextEncoder().encode(process.env.JWT_SECRET));
+                return middleware(request, event, NextResponse.next());
+            } catch (error) {
+                console.log(error)
+                const response = NextResponse.redirect(new URL('/login', request.url));
+
+                response.cookies.delete('accessToken')
+
+                return response;
+            }
         }
 
         if (token?.value && authPath) {
