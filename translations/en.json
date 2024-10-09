@@ -1,4 +1,8 @@
 {
+    "notFound": {
+        "message": "Nothing here 🤷‍♂️",
+        "button": "Go back"
+    },
     "navigation": {
         "home": "Home",
         "experience": "Experience",
@@ -32,6 +36,16 @@
             "buttons": {
                 "login": "Login",
                 "back": "Back"
+            }
+        }
+    },
+    "dashboard": {
+        "layout": {
+            "sidebar": {
+                "personalData": "Personal data",
+                "experience": "Experience",
+                "projects": "Projects",
+                "stack": "Stack"
             }
         }
     }

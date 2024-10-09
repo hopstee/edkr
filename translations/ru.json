@@ -1,4 +1,8 @@
 {
+    "notFound": {
+        "message": "Здесь ничего нет 🤷‍♂️",
+        "button": "Вернуться назад"
+    },
     "navigation": {
         "home": "Главная",
         "experience": "Опыт",
@@ -32,6 +36,16 @@
             "buttons": {
                 "login": "Войти",
                 "back": "Назад"
+            }
+        }
+    },
+    "dashboard": {
+        "layout": {
+            "sidebar": {
+                "personalData": "Личные данные",
+                "experience": "Опыт",
+                "projects": "Проекты",
+                "stack": "Стек"
             }
         }
     }
