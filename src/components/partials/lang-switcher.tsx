@@ -60,7 +60,7 @@ export default function LangSwitcher() {
 
     const handleChangeLang = (code: Locale) => {
         setOpen(false)
-        router.push(pathname, {
+        router.replace(pathname, {
             locale: code,
             scroll: false,
         });

@@ -14,13 +14,13 @@ export default function DashboardHeader() {
 
     return (
         <header className='w-full border-b-2 border-timberwolf-dark dark:border-eerie-light'>
-            <div className='p-3 bg-timberwolf-light dark:bg-eerie-dark'>
+            <div className='p-3 bg-timberwolf-light dark:bg-eerie-mid-light'>
                 <div className='flex items-center justify-between'>
                     <div>
                         <div className='flex'>
                             <span className='text-2xl'>✌️</span>
                             <div className='flex flex-col justify-start'>
-                                <Link className='block text-violet-500 dark:text-yellow-500 text-2xl transition-colors' href='/'>
+                                <Link className='block text-ochre text-2xl transition-colors' href='/'>
                                     <span className='sr-only'>Home</span>
                                     edkr.
                                 </Link>

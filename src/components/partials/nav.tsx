@@ -4,7 +4,7 @@ import { buttonVariants } from "@/components/ui/button"
 import { Link } from "@/i18n/routing"
 import { cn } from "@/lib/utils"
 import { LucideIcon } from "lucide-react"
-import { useLocale } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 import { usePathname } from "next/navigation"
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip"
 
@@ -15,12 +15,15 @@ interface NavProps {
         href: string
         path: string
         icon: LucideIcon
+        translation: string
     }[]
 }
 
 export default function Nav({ isCollapsed, links }: NavProps) {
     const pathname = usePathname()
     const locale = useLocale()
+
+    const t = useTranslations()
 
     const currentPath = pathname.replace(`/${locale}`, '')?.split('/')[2] || ''
 
@@ -40,17 +43,17 @@ export default function Nav({ isCollapsed, links }: NavProps) {
                                     className={cn(
                                         buttonVariants({ variant: 'ghost', size: "icon" }),
                                         "h-9 w-9",
-                                        "dark:text-timberwolf dark:hover:bg-eerie-mid-light dark:hover:text-timberwolf",
+                                        "dark:text-timberwolf dark:hover:bg-eerie-light dark:hover:text-timberwolf",
                                         "text-eerie hover:bg-timberwolf hover:text-eerie",
-                                        currentPath === link.path && "dark:bg-eerie-mid-light dark:text-timberwolf/80 bg-timberwolf text-eerie/70"
+                                        currentPath === link.path && "dark:bg-eerie-light dark:text-timberwolf/80 bg-timberwolf text-eerie/70"
                                     )}
                                 >
                                     <link.icon className='h-4 w-4' />
                                     <span className='sr-only'>{link.title}</span>
                                 </Link>
                             </TooltipTrigger>
-                            <TooltipContent side='right' className='flex items-center gap-4 rounded-lg bg-timberwolf-light dark:bg-eerie-dark border-2 border-timberwolf-mid dark:border-eerie-light border-solid'>
-                                {link.title}
+                            <TooltipContent side='right' className='flex items-center gap-4 rounded-lg bg-timberwolf-light dark:bg-eerie-mid-light border-2 border-timberwolf-mid dark:border-eerie-light border-solid'>
+                                {t(link.translation)}
                             </TooltipContent>
                         </Tooltip>
                     ) : (
@@ -59,14 +62,14 @@ export default function Nav({ isCollapsed, links }: NavProps) {
                             href={link.href}
                             className={cn(
                                 buttonVariants({ variant: 'ghost', size: "sm" }),
-                                "dark:text-timberwolf dark:hover:bg-eerie-mid-light dark:hover:text-timberwolf",
+                                "dark:text-timberwolf dark:hover:bg-eerie-light dark:hover:text-timberwolf",
                                 "text-eerie hover:bg-timberwolf hover:text-eerie",
                                 "justify-start",
-                                currentPath === link.path && "dark:bg-eerie-mid-light dark:text-timberwolf/80 bg-timberwolf text-eerie/70"
+                                currentPath === link.path && "dark:bg-eerie-light dark:text-timberwolf/80 bg-timberwolf text-eerie/70"
                             )}
                         >
                             <link.icon className='mr-2 h-4 w-4' />
-                            {link.title}
+                            {t(link.translation)}
                         </Link>
                     )
                 )}

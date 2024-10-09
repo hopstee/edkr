@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+let timer: NodeJS.Timeout;
+
 const useMediaQuery = (query: string): boolean => {
     const [matches, setMatches] = useState<boolean>(false);
 
@@ -9,7 +11,10 @@ const useMediaQuery = (query: string): boolean => {
             setMatches(media.matches);
         }
 
-        const listener = () => setMatches(media.matches);
+        const listener = () => {
+            clearTimeout(timer);
+            timer = setTimeout(() => setMatches(media.matches), 500);
+        }
 
         media.addEventListener("change", listener);
 
