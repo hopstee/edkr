@@ -1,10 +1,19 @@
 import { cn } from '@/lib/utils';
+import * as motion from "framer-motion/client";
 import Image from 'next/image';
 import Contacts from '../contacts';
 
 export default function Info() {
     return (
-        <div className='max-w-[800px] mx-auto'>
+        <motion.div
+            variants={{
+                hidden: { y: 20, opacity: 0 },
+                visible: { y: 0, opacity: 1 }
+            }}
+            initial='hidden'
+            whileInView='visible'
+            className='max-w-[800px] mx-auto'
+        >
             <div className='flex items-center max-md:flex-col max-md:space-y-8 md:space-x-16 '>
                 <div className='flex flex-col items-center'>
                     <div className='relative size-32 md:size-64 bg-timberwolf-mid dark:bg-eerie-mid rounded-full border-2 border-timberwolf-dark dark:border-eerie-light'>
@@ -52,6 +61,6 @@ export default function Info() {
             <div className='mt-8'>
                 <Contacts />
             </div>
-        </div>
+        </motion.div>
     )
 }

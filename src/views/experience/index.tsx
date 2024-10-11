@@ -1,12 +1,30 @@
 import { Experience } from '@/shared/types/experience';
+import * as motion from "framer-motion/client";
 
 interface ExperienceItemProps {
     experience: Experience;
+    id: number;
 }
 
-const ExperienceItem: React.FC<ExperienceItemProps> = ({ experience }) => {
+const ExperienceItem: React.FC<ExperienceItemProps> = ({ experience, id }) => {
     return (
-        <div className='relative w-full pl-8'>
+        <motion.div
+            className='relative w-full pl-8'
+            variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                        delay: id * 0.1,
+                        once: true
+                    }
+                }
+            }}
+            viewport={{ once: true }}
+            initial='hidden'
+            whileInView='visible'
+        >
             <div className='flex items-center absolute top-3 -left-[3.5px] -translate-y-1/2'>
                 <div
                     className='size-3 bg-timberwolf dark:bg-eerie rounded-full border-2 border-timberwolf-dark dark:border-eerie-light border-solid z-10'>
@@ -30,7 +48,7 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({ experience }) => {
                     ))}
                 </ol>
             </div>
-        </div>
+        </motion.div>
     )
 }
 
@@ -58,7 +76,7 @@ export default function ExperiencesView({ experienceList }: { experienceList: Ex
                 </div>
                 <div className='py-16 space-y-16'>
                     {experienceList.map((experience: Experience, index: number) => (
-                        <ExperienceItem experience={experience} key={index} />
+                        <ExperienceItem key={index} experience={experience} id={index} />
                     ))}
                 </div>
             </div>

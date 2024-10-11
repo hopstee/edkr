@@ -1,5 +1,6 @@
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
+import * as motion from "framer-motion/client";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
@@ -86,16 +87,32 @@ interface SkillItem {
 interface SkillCategoryProps {
     title: string;
     items: SkillItem[];
+    id: number;
 }
 
-const SkillCategoryWidget: React.FC<SkillCategoryProps> = ({ title, items }) => {
+const SkillCategoryWidget: React.FC<SkillCategoryProps> = ({ title, items, id }) => {
     return (
-        <div className={cn(
-            'backdrop-blur-md',
-            'bg-timberwolf-mid-light dark:bg-eerie-mid-light border-2 border-timberwolf-dark dark:border-eerie-light',
-            // 'bg-timberwolf-mid dark:bg-eerie-mid-light border-2 border-timberwolf-dark dark:border-eerie-light',
-            'rounded-xl h-full cursor-grab active:cursor-grabbing active:rotate-2 active:scale-95 transition-all duration-300 select-none',
-        )}>
+        <motion.div
+            variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                    opacity: 1,
+                    transition: {
+                        delay: id * 0.1,
+                        once: true
+                    }
+                }
+            }}
+            initial='hidden'
+            whileInView='visible'
+            viewport={{ once: true }}
+            className={cn(
+                'backdrop-blur-md',
+                'bg-timberwolf-mid-light dark:bg-eerie-mid-light border-2 border-timberwolf-dark dark:border-eerie-light',
+                // 'bg-timberwolf-mid dark:bg-eerie-mid-light border-2 border-timberwolf-dark dark:border-eerie-light',
+                'rounded-xl h-full cursor-grab',
+            )}
+        >
             <div className='p-3 border-b-2 border-timberwolf-dark dark:border-eerie-light'>
                 <h6>{title}</h6>
             </div>
@@ -116,7 +133,7 @@ const SkillCategoryWidget: React.FC<SkillCategoryProps> = ({ title, items }) => 
                     </div>
                 ))}
             </div>
-        </div>
+        </motion.div>
     );
 };
 
@@ -141,6 +158,7 @@ export default function Skills() {
                                 <SkillCategoryWidget
                                     title={category.title}
                                     items={category.items as SkillItem[]}
+                                    id={index}
                                 />
                             </CarouselItem>
                         ))}
