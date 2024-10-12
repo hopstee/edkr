@@ -3,6 +3,7 @@ import Header from "@/components/partials/header";
 import { Common } from "@/shared/types/common";
 import { promises as fs } from "fs";
 import { getLocale } from "next-intl/server";
+import path from "path";
 
 export default async function MainLayout({
     children,
@@ -10,7 +11,7 @@ export default async function MainLayout({
     children: React.ReactNode;
 }>) {
     const locale = await getLocale();
-    const commonFile = await fs.readFile(process.cwd() + `/data/${locale}/common.json`, "utf8");
+    const commonFile = await fs.readFile(path.resolve() + `/data/${locale}/common.json`, "utf8");
     const common: Common = JSON.parse(commonFile);
 
     return (
