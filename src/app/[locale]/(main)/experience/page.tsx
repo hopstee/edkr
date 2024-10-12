@@ -5,7 +5,7 @@ import { getLocale } from "next-intl/server";
 
 export default async function ExperiencesPage() {
     const locale = await getLocale();
-    const experienceListFile = await fs.readFile(`data/${locale}/experience.json`, "utf8");
+    const experienceListFile = await fs.readFile(`${process.cwd()}/data/${locale}/experience.json`, "utf8");
     const experienceList: ExperienceList = JSON.parse(experienceListFile);
 
     return <ExperiencesView experienceList={experienceList} />

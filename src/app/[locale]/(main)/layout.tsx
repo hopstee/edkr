@@ -10,7 +10,7 @@ export default async function MainLayout({
     children: React.ReactNode;
 }>) {
     const locale = await getLocale();
-    const commonFile = await fs.readFile(`data/${locale}/common.json`, "utf8");
+    const commonFile = await fs.readFile(`${process.cwd()}/data/${locale}/common.json`, "utf8");
     const common: Common = JSON.parse(commonFile);
 
     return (
