@@ -42,6 +42,7 @@
     "dashboard": {
         "layout": {
             "sidebar": {
+                "common": "Общие",
                 "personalData": "Личные данные",
                 "experience": "Опыт",
                 "projects": "Проекты",

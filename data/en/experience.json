@@ -1,0 +1,89 @@
+{
+    "startYear": "2019",
+    "experience": [
+        {
+            "company": "Crossnetics",
+            "position": "Fullstack Developer",
+            "period": {
+                "start": "Jun 2024",
+                "finish": "Sep 2024"
+            },
+            "description": [
+                "Developed a marketing product with web3 support (NestJS, MySQL, Redis, ElasticSearch, NextJS)",
+                "Created and integrated new modules, optimized existing solutions",
+                "Refactored database operations to simplify the interaction for new developers"
+            ]
+        },
+        {
+            "company": "Oculeus",
+            "position": "Fullstack Developer",
+            "period": {
+                "start": "Oct 2022",
+                "finish": "Apr 2024"
+            },
+            "description": [
+                "Developed a CRM system for the telecom, banking, and crypto sectors (NodeJS, ExpressJS, PostgreSQL, ReactJS)",
+                "Redesigned the CRM chat, improved performance, and added Telegram notifications"
+            ]
+        },
+        {
+            "company": "Imentali",
+            "position": "Frontend Developer",
+            "period": {
+                "start": "May 2022",
+                "finish": "Oct 2022"
+            },
+            "description": [
+                "Developed a tax exemption certificate generation and management system (ReactJS, MaterialUI)",
+                "Fully migrated the project from pure JS to ReactJS"
+            ]
+        },
+        {
+            "company": "Freelance",
+            "position": "Fullstack Developer",
+            "period": {
+                "start": "May 2021",
+                "finish": "Apr 2022"
+            },
+            "description": [
+                "Development of telegram bots (Laravel, NuxtJS, Redis, MySQL, Supervisor, Nginx)",
+                "Created trading scripts in Python",
+                "Deployed blockchain networks and built APIs for bots (NodeJS, ExpressJS, Web3, Rest, geth)"
+            ]
+        },
+        {
+            "company": "Ilab",
+            "position": "Fullstack Developer",
+            "period": {
+                "start": "Nov 2020",
+                "finish": "Apr 2021"
+            },
+            "description": [
+                "Developed software for electric vehicle charging stations (Codeigniter)"
+            ]
+        },
+        {
+            "company": "Cyber Whale",
+            "position": "Fullstack Developer",
+            "period": {
+                "start": "Jun 2020",
+                "finish": "Oct 2020"
+            },
+            "description": [
+                "Developed a platform for streaming video and audio (Codeigniter)"
+            ]
+        },
+        {
+            "company": "Unifun International",
+            "position": "Fullstack Developer",
+            "period": {
+                "start": "Apr 2019",
+                "finish": "Apr 2020"
+            },
+            "description": [
+                "Developed a classified ads board (Laravel)",
+                "Built an employee management system (ReactJS)"
+            ]
+        }
+    ]
+}

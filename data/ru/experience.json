@@ -1,0 +1,89 @@
+{
+    "startYear": "2019",
+    "experience": [
+        {
+            "company": "Crossnetics",
+            "position": "Fullstack Developer",
+            "period": {
+                "start": "Июнь 2024",
+                "finish": "Сентябрь 2024"
+            },
+            "description": [
+                "Разработка маркетингового продукта с поддержкой web3 (NestJS, MySQL, Redis, ElasticSearch, NextJS)",
+                "Создание и интеграция новых модулей, оптимизация существующих решений",
+                "Отрефакторил работу с базами данных для упрощения взаимодействия новых программистов с методами"
+            ]
+        },
+        {
+            "company": "Oculeus",
+            "position": "Fullstack Developer",
+            "period": {
+                "start": "Октябрь 2022",
+                "finish": "Апрель 2024"
+            },
+            "description": [
+                "Разработка CRM системы для телеком, банковской и крипто сфер (NodeJS, ExpressJS, PostgreSQL, ReactJS)",
+                "Переработал чат CRM, улучшил его работу и добавил нотификации в Telegram"
+            ]
+        },
+        {
+            "company": "Imentali",
+            "position": "Frontend Developer",
+            "period": {
+                "start": "Май 2022",
+                "finish": "Октябрь 2022"
+            },
+            "description": [
+                "Разработка системы генерации и управления налоговыми сертификатами (ReactJS, MaterialUI)",
+                "Полностью перевел проект с чистого JS на ReactJS"
+            ]
+        },
+        {
+            "company": "Freelance",
+            "position": "Fullstack Developer",
+            "period": {
+                "start": "Май 2021",
+                "finish": "Апрель 2022"
+            },
+            "description": [
+                "Разработка телеграмм ботов (Laravel, NuxtJS, Redis, MySQL, Supervisor, Nginx)",
+                "Создание торговых скриптов на Python",
+                "Развернул блокчейн сети и написал API для ботов (NodeJS, ExpressJS, Web3, Rest, geth)"
+            ]
+        },
+        {
+            "company": "Ilab",
+            "position": "Fullstack Developer",
+            "period": {
+                "start": "Ноябрь 2020",
+                "finish": "Апрель 2021"
+            },
+            "description": [
+                "Разработка программного обеспечения для зарядных станций электромобилей (Codeigniter)"
+            ]
+        },
+        {
+            "company": "Cyber Whale",
+            "position": "Fullstack Developer",
+            "period": {
+                "start": "Июнь 2020",
+                "finish": "Октябрь 2020"
+            },
+            "description": [
+                "Разработка платформы для потокового видео и аудио (Codeigniter)"
+            ]
+        },
+        {
+            "company": "Unifun International",
+            "position": "Fullstack Developer",
+            "period": {
+                "start": "Апрель 2019",
+                "finish": "Апрель 2020"
+            },
+            "description": [
+                "Разработка доски объявлений (Laravel)",
+                "Создание системы управления сотрудниками (ReactJS)"
+            ]
+        }
+    ]
+}

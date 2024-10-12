@@ -18,9 +18,9 @@ export default function AuthLayout({
         <div className='relative min-h-screen w-full p-5 flex items-center justify-center'>
             <div className='absolute top-5 left-5'>
                 <Button
-                    className='rounded-xl bg-timberwolf-mid-light dark:bg-eerie-mid-light hover:bg-timberwolf-light dark:hover:bg-eerie-light'
+                    className='rounded-xl bg-main-mid-light dark:bg-alter-mid-light hover:bg-main-light dark:hover:bg-alter-light'
                     variant='ghost'
-                    onClick={() => router.back()}
+                    onClick={() => router.push('/')}
                 >
                     <ArrowLeft className='w-4 h-4 mr-2' />
                     {t('buttons.back')}

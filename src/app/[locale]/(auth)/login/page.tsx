@@ -46,7 +46,7 @@ const Login = () => {
 
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4 p-5 rounded-xl bg-timberwolf-light dark:bg-eerie-mid-light border-2 border-timberwolf-dark dark:border-eerie-light'>
+            <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4 p-5 rounded-xl bg-main-light dark:bg-alter-mid-light border-2 border-main-dark dark:border-alter-light'>
                 <FormField
                     control={form.control}
                     name='username'

@@ -15,7 +15,6 @@ export default function ExitButton() {
 
     return (
         <Button
-            variant='ghost'
             size='icon'
             onClick={handleLogout}
             className='bg-coral-dark/30 hover:bg-coral-dark/40 rounded-xl'

@@ -1,15 +1,21 @@
 import BottomBar from "@/components/partials/bottombar";
 import Header from "@/components/partials/header";
+import { Common } from "@/shared/types/common";
+import { promises as fs } from "fs";
+import { getLocale } from "next-intl/server";
 
 export default async function MainLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const locale = await getLocale();
+    const commonFile = await fs.readFile(`data/${locale}/common.json`, "utf8");
+    const common: Common = JSON.parse(commonFile);
 
     return (
         <div className='relative h-full w-full flex flex-col'>
-            <Header />
+            <Header data={common} />
             <div className='flex-1 overflow-y-auto'>
                 <div className='max-w-[1220px] mx-auto min-h-full px-2 md:px-5'>
                     <div className='pb-16 md:pb-5'>

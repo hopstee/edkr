@@ -20,7 +20,6 @@ export default function ThemeSwitcher() {
 
     return (
         <Button
-            variant='ghost'
             size='icon'
             onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
             className={cn(

@@ -36,12 +36,12 @@ const LanguageItem: React.FC<LanguageItemProps> = ({ code, handleChangeLang, cur
         <div
             onClick={() => handleChangeLang(code)}
             className={cn(
-                'flex items-center justify-between px-4 py-2 hover:bg-timberwolf-mid dark:hover:bg-eerie-light rounded-md cursor-pointer',
-                currentLang === code && 'bg-timberwolf-mid dark:bg-eerie-light'
+                'flex items-center justify-between px-4 py-2 hover:bg-main-mid dark:hover:bg-alter-light rounded-md cursor-pointer',
+                currentLang === code && 'bg-main-mid dark:bg-alter-light'
             )}
         >
-            <span className='text-base text-eerie dark:text-timberwolf'>{t(`${code}`)}</span>
-            <span className='text-sm text-eerie-light/60 dark:text-timberwolf-light/60'>{code}</span>
+            <span className='text-base text-alter dark:text-main'>{t(`${code}`)}</span>
+            <span className='text-sm text-alter-light/60 dark:text-main-light/60'>{code}</span>
         </div>
     );
 };
@@ -73,18 +73,18 @@ export default function LangSwitcher() {
                     variant='ghost'
                     size='icon'
                     className={cn(
-                        'transition-all rounded-xl bg-timberwolf-mid dark:bg-eerie-light/60 hover:bg-timberwolf-dark dark:hover:bg-eerie-light',
+                        'transition-all rounded-xl bg-main-mid-light dark:bg-alter-light/60 hover:bg-main dark:hover:bg-alter-light',
                     )}
                 >
                     {locale}
                 </Button>
             </DialogTrigger>
-            <DialogContent className='sm:max-w-[425px] px-0 !rounded-xl backdrop-blur-md bg-timberwolf-light dark:bg-eerie-mid-light border-2 border-timberwolf-dark dark:border-eerie-light'>
+            <DialogContent className='sm:max-w-[425px] px-0 !rounded-xl backdrop-blur-md bg-main-light dark:bg-alter-mid-light border-2 border-main-dark dark:border-alter-light'>
                 <DialogHeader className='px-5'>
-                    <DialogTitle className='text-eerie dark:text-timberwolf'>
+                    <DialogTitle className='text-alter dark:text-main'>
                         {t('title')}
                     </DialogTitle>
-                    <DialogDescription className='text-eerie-light/70 dark:text-timberwolf-light/60'>
+                    <DialogDescription className='text-alter-light/70 dark:text-main-light/60'>
                         {t('description')}
                     </DialogDescription>
                 </DialogHeader>
@@ -104,21 +104,21 @@ export default function LangSwitcher() {
                     variant='ghost'
                     size='icon'
                     className={cn(
-                        'transition-all rounded-xl bg-timberwolf-mid dark:bg-eerie-light/60 hover:bg-timberwolf-dark dark:hover:bg-eerie-light',
+                        'transition-all rounded-xl bg-main-mid dark:bg-alter-light/60 hover:bg-main-dark dark:hover:bg-alter-light',
                     )}
                 >
                     {locale}
                 </Button>
             </DrawerTrigger>
             <DrawerContent className={cn(
-                'rounded-t-xl bg-timberwolf-light dark:bg-eerie-mid-light border-t-2 border-timberwolf-dark dark:border-eerie-light',
+                'rounded-t-xl bg-main-light dark:bg-alter-mid-light border-t-2 border-main-dark dark:border-alter-light',
                 'mt-0 h-fit fixed bottom-0 left-0 right-0 outline-none'
             )}>
                 <DrawerHeader className='text-left'>
-                    <DrawerTitle className='text-eerie dark:text-timberwolf'>
+                    <DrawerTitle className='text-alter dark:text-main'>
                         {t('title')}
                     </DrawerTitle>
-                    <DrawerDescription className='text-eerie-light/70 dark:text-timberwolf-light/60'>
+                    <DrawerDescription className='text-alter-light/70 dark:text-main-light/60'>
                         {t('description')}
                     </DrawerDescription>
                 </DrawerHeader>

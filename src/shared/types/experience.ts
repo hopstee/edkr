@@ -7,3 +7,8 @@ export type Experience = {
     },
     description: string[]
 }
+
+export type ExperienceList = {
+    startYear: string
+    experience: Experience[]
+}

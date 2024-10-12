@@ -43,16 +43,16 @@ export default function Nav({ isCollapsed, links }: NavProps) {
                                     className={cn(
                                         buttonVariants({ variant: 'ghost', size: "icon" }),
                                         "h-9 w-9",
-                                        "dark:text-timberwolf dark:hover:bg-eerie-light dark:hover:text-timberwolf",
-                                        "text-eerie hover:bg-timberwolf hover:text-eerie",
-                                        currentPath === link.path && "dark:bg-eerie-light dark:text-timberwolf/80 bg-timberwolf text-eerie/70"
+                                        "dark:text-main dark:hover:bg-alter-light dark:hover:text-main",
+                                        "text-alter hover:bg-main hover:text-alter",
+                                        currentPath === link.path && "dark:bg-alter-light dark:text-main/80 bg-main text-alter/70"
                                     )}
                                 >
                                     <link.icon className='h-4 w-4' />
                                     <span className='sr-only'>{link.title}</span>
                                 </Link>
                             </TooltipTrigger>
-                            <TooltipContent side='right' className='flex items-center gap-4 rounded-lg bg-timberwolf-light dark:bg-eerie-mid-light border-2 border-timberwolf-mid dark:border-eerie-light border-solid'>
+                            <TooltipContent side='right' className='flex items-center gap-4 rounded-lg bg-main-light dark:bg-alter-mid-light border-2 border-main-mid dark:border-alter-light border-solid'>
                                 {t(link.translation)}
                             </TooltipContent>
                         </Tooltip>
@@ -62,10 +62,10 @@ export default function Nav({ isCollapsed, links }: NavProps) {
                             href={link.href}
                             className={cn(
                                 buttonVariants({ variant: 'ghost', size: "sm" }),
-                                "dark:text-timberwolf dark:hover:bg-eerie-light dark:hover:text-timberwolf",
-                                "text-eerie hover:bg-timberwolf hover:text-eerie",
+                                "dark:text-main dark:hover:bg-alter-light dark:hover:text-main",
+                                "text-alter hover:bg-main hover:text-alter",
                                 "justify-start",
-                                currentPath === link.path && "dark:bg-eerie-light dark:text-timberwolf/80 bg-timberwolf text-eerie/70"
+                                currentPath === link.path && "dark:bg-alter-light dark:text-main/80 bg-main text-alter/70"
                             )}
                         >
                             <link.icon className='mr-2 h-4 w-4' />

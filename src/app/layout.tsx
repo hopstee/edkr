@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { Montserrat } from "next/font/google";
@@ -31,8 +32,8 @@ export default function RootLayout({
             <body
                 className={cn(
                     raleway.className,
-                    'text-eerie-light dark:text-timberwolf',
-                    'antialiased bg-timberwolf dark:bg-eerie bg-[radial-gradient(#C7CABA_1px,transparent_1px)] dark:bg-[radial-gradient(#3D3D3D8f_1px,transparent_1px)] [background-size:20px_20px]'
+                    'text-alter-light dark:text-main',
+                    'antialiased bg-main dark:bg-alter bg-[radial-gradient(#C7CABA_1px,transparent_1px)] dark:bg-[radial-gradient(#3D3D3D8f_1px,transparent_1px)] [background-size:20px_20px]'
                 )}
             >
                 <AppThemeProvider
@@ -41,6 +42,7 @@ export default function RootLayout({
                     enableSystem
                 >
                     {children}
+                    <SpeedInsights />
                 </AppThemeProvider>
 
                 <NextTopLoader

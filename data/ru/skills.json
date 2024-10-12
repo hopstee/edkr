@@ -1,0 +1,186 @@
+[
+    {
+        "title": "Языки",
+        "folder": "langs",
+        "stack": [
+            {
+                "title": "JavaScript",
+                "icon": "js.svg"
+            },
+            {
+                "title": "TypeScript",
+                "icon": "ts.svg"
+            },
+            {
+                "title": "PHP",
+                "icon": "php.svg"
+            },
+            {
+                "title": "Python",
+                "icon": "python.svg"
+            },
+            {
+                "title": "Go",
+                "icon": "go.svg"
+            }
+        ]
+    },
+    {
+        "title": "Frontend",
+        "folder": "frontend",
+        "stack": [
+            {
+                "title": "ReactJS",
+                "icon": "reactjs.svg"
+            },
+            {
+                "title": "NextJS",
+                "icon": "nextjs-light.svg",
+                "altIcon": "nextjs-dark.svg"
+            },
+            {
+                "title": "HTML",
+                "icon": "html.svg"
+            },
+            {
+                "title": "CSS",
+                "icon": "css.svg"
+            }
+        ]
+    },
+    {
+        "title": "Backend",
+        "folder": "backend",
+        "stack": [
+            {
+                "title": "NodeJS",
+                "icon": "nodejs.svg"
+            },
+            {
+                "title": "NestJS",
+                "icon": "nestjs.svg"
+            },
+            {
+                "title": "Laravel",
+                "icon": "laravel.svg"
+            }
+        ]
+    },
+    {
+        "title": "Базы данных",
+        "folder": "db",
+        "stack": [
+            {
+                "title": "MySQL",
+                "icon": "mysql.svg"
+            },
+            {
+                "title": "PostgreSQL",
+                "icon": "postgresql.svg"
+            },
+            {
+                "title": "MongoDB",
+                "icon": "mongodb.svg"
+            },
+            {
+                "title": "Redis",
+                "icon": "redis.svg"
+            },
+            {
+                "title": "Elasticsearch",
+                "icon": "elasticsearch.svg"
+            }
+        ]
+    },
+    {
+        "title": "UI",
+        "folder": "ui",
+        "stack": [
+            {
+                "title": "Radix UI",
+                "icon": "radixui-light.svg",
+                "altIcon": "radixui-dark.svg"
+            },
+            {
+                "title": "Shadcn UI",
+                "icon": "shadcnui-light.svg",
+                "altIcon": "shadcnui-dark.svg"
+            },
+            {
+                "title": "Tailwind CSS",
+                "icon": "tailwind.svg"
+            },
+            {
+                "title": "Bootstrap",
+                "icon": "bootstrap-light.svg",
+                "altIcon": "bootstrap-dark.svg"
+            },
+            {
+                "title": "Material UI",
+                "icon": "materialui.svg"
+            }
+        ]
+    },
+    {
+        "title": "Инструменты",
+        "folder": "tools",
+        "stack": [
+            {
+                "title": "Homebrew",
+                "icon": "homebrew.svg"
+            },
+            {
+                "title": "Jira",
+                "icon": "jira-light.svg",
+                "altIcon": "jira-dark.svg"
+            },
+            {
+                "title": "npm",
+                "icon": "npm.svg"
+            },
+            {
+                "title": "Postman",
+                "icon": "postman.svg"
+            },
+            {
+                "title": "Slack",
+                "icon": "slack.svg"
+            },
+            {
+                "title": "VSCode",
+                "icon": "vscode.svg"
+            }
+        ]
+    },
+    {
+        "title": "DevOps",
+        "folder": "devops",
+        "stack": [
+            {
+                "title": "Git",
+                "icon": "git.svg"
+            },
+            {
+                "title": "GitHub",
+                "icon": "github-light.svg",
+                "altIcon": "github-dark.svg"
+            },
+            {
+                "title": "GitLab",
+                "icon": "gitlab.svg"
+            },
+            {
+                "title": "Docker",
+                "icon": "docker.svg"
+            },
+            {
+                "title": "Bitbucket",
+                "icon": "bitbucket.svg"
+            },
+            {
+                "title": "Linux",
+                "icon": "linux.svg"
+            }
+        ]
+    }
+]

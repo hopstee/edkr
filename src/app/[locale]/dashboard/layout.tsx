@@ -1,5 +1,5 @@
-import DashboardContent from "@/components/partials/dashboard-content";
-import DashboardHeader from "@/components/partials/dashboard-header";
+import DashboardContent from "@/components/dashboard/dashboard-content";
+import DashboardHeader from "@/components/dashboard/dashboard-header";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 export default function DashboardLayout({

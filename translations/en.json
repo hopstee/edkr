@@ -42,6 +42,7 @@
     "dashboard": {
         "layout": {
             "sidebar": {
+                "common": "Common",
                 "personalData": "Personal data",
                 "experience": "Experience",
                 "projects": "Projects",

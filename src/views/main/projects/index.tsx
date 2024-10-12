@@ -1,5 +1,5 @@
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Project, TechStack } from "@/shared/types/project";
+import { Project, Stack } from "@/shared/types/project";
 import * as motion from "framer-motion/client";
 import { ArrowUpRight } from 'lucide-react';
 import Image from "next/image";
@@ -12,7 +12,7 @@ interface ProjectItemProps {
 const ProjectItem: React.FC<ProjectItemProps> = ({ project, id }) => {
     return (
         <motion.div
-            className='flex flex-col w-full backdrop-blur-md bg-timberwolf-light dark:bg-eerie-mid-light rounded-xl overflow-hidden'
+            className='flex flex-col w-full backdrop-blur-md bg-main-light dark:bg-alter-mid-light rounded-xl overflow-hidden'
             variants={{
                 hidden: { opacity: 0, y: 20 },
                 visible: {
@@ -31,28 +31,28 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ project, id }) => {
             <div className='w-full'>
                 <AspectRatio ratio={16 / 9}>
                     <Image
-                        src={project.image}
+                        src={`/assets/images/projects/${project.image}`}
                         alt={project.title}
                         fill
                         className='object-cover'
                     />
                 </AspectRatio>
             </div>
-            <div className='flex flex-1 flex-col justify-between p-3 rounded-b-xl border-2 border-t-0 border-timberwolf-dark dark:border-eerie-light'>
+            <div className='flex flex-1 flex-col justify-between p-3 rounded-b-xl border-2 border-t-0 border-main-dark dark:border-alter-light'>
                 <div>
                     <h3 className='text-lg font-bold'>
                         {project.title}
                     </h3>
-                    <p className='text-sm font-normal mt-1 text-eerie/80 dark:text-timberwolf/80'>
+                    <p className='text-sm font-normal mt-1 text-alter/80 dark:text-main/80'>
                         {project.description}
                     </p>
-                    {project.techstack.map((item: TechStack, index: number) => (
+                    {project.stack.map((item: Stack, index: number) => (
                         <div key={index} className='text-sm mt-3'>
                             <h4 className='font-semibold'>{item.title}:</h4>
                             <div className='flex flex-wrap gap-1 mt-1'>
                                 {item.items.map((tech: string, index: number) => (
-                                    <div key={index} className='bg-timberwolf-mid-light dark:bg-eerie-light px-3 py-1 rounded-full w-fit'>
-                                        <p className='text-xs font-normal text-eerie/70 dark:text-timberwolf/70'>
+                                    <div key={index} className='bg-main-mid-light dark:bg-alter-light px-3 py-1 rounded-full w-fit'>
+                                        <p className='text-xs font-normal text-alter/70 dark:text-main/70'>
                                             {tech}
                                         </p>
                                     </div>

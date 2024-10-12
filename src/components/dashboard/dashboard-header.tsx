@@ -2,9 +2,9 @@
 
 import { Link } from '@/i18n/routing';
 import { useEffect } from 'react';
-import ExitButton from './exit-button';
-import LangSwitcher from './lang-switcher';
-import ThemeSwitcher from './theme-switcher';
+import ExitButton from '../partials/exit-button';
+import LangSwitcher from '../partials/lang-switcher';
+import ThemeSwitcher from '../partials/theme-switcher';
 
 export default function DashboardHeader() {
 
@@ -13,8 +13,8 @@ export default function DashboardHeader() {
     }, [])
 
     return (
-        <header className='w-full border-b-2 border-timberwolf-dark dark:border-eerie-light'>
-            <div className='p-3 bg-timberwolf-light dark:bg-eerie-mid-light'>
+        <header className='w-full border-b-2 border-main-dark dark:border-alter-light'>
+            <div className='p-3 bg-main-light dark:bg-alter-mid-light'>
                 <div className='flex items-center justify-between'>
                     <div>
                         <div className='flex'>

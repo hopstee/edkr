@@ -3,10 +3,10 @@ export type Project = {
     description: string
     image: string
     link: string
-    techstack: TechStack[]
+    stack: Stack[]
 }
 
-export type TechStack = {
+export type Stack = {
     title: string
     items: string[]
 }

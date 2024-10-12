@@ -1,46 +1,47 @@
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { Github, Linkedin, Mail, Send } from 'lucide-react';
+import { Contacts as ContactsType } from '@/shared/types/contacts';
+import { Github, Linkedin, LucideIcon, Mail, Send } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 
-const contacts = [
+const contactItems: { icon: LucideIcon, name: keyof ContactsType }[] = [
     {
-        link: 'https://t.me/hopstee',
-        icon: Send
+        icon: Send,
+        name: 'telegram'
     },
     {
-        link: 'https://github.com/hopstee',
-        icon: Github
+        icon: Github,
+        name: 'github'
     },
     {
-        link: 'https://www.linkedin.com/in/eduard-krivovyashchuk-a182aa197?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
-        icon: Linkedin
+        icon: Linkedin,
+        name: 'linkedin'
     },
 ]
 
-export default function Contacts() {
+export default function Contacts({ contacts }: { contacts: ContactsType }) {
     const t = useTranslations('buttons');
 
     return (
         <div className='max-w-[500px] mx-auto space-y-5'>
             <div className='flex flex-wrap justify-center gap-2 md:gap-3'>
-                {contacts.map((link, index) => (
+                {contactItems.map((item, index) => (
                     <Link
                         key={index}
-                        href={link.link}
+                        href={contacts[item.name]}
                         target='_blank'
                     >
                         <Button
                             size='icon'
                             className={cn(
                                 'rounded-xl w-12 h-12 backdrop-blur-md',
-                                // 'bg-timberwolf-mid hover:bg-timberwolf-dark border-none text-eerie/60',
-                                'bg-timberwolf-mid-light hover:bg-timberwolf-light border-none text-eerie/60',
-                                'dark:bg-eerie-mid-light dark:hover:bg-eerie-light dark:text-timberwolf/70',
+                                // 'bg-main-mid hover:bg-main-dark border-none text-alter/60',
+                                'bg-main-mid-light hover:bg-main-light border-none text-alter/60',
+                                'dark:bg-alter-mid-light dark:hover:bg-alter-light dark:text-main/70',
                             )}
                         >
-                            <link.icon className='size-5' />
+                            <item.icon className='size-5' />
                         </Button>
                     </Link>
                 ))}
@@ -49,7 +50,7 @@ export default function Contacts() {
                         size='default'
                         className={cn(
                             'backdrop-blur-md rounded-xl border-4 border-ochre bg-ochre/60 hover:bg-ochre dark:hover:bg-ochre px-4 py-2 h-12',
-                            'text-ochre-text hover:text-eerie-light dark:text-ochre-light-text dark:hover:text-timberwolf-mid'
+                            'text-ochre-text hover:text-alter-light dark:text-ochre-light-text'
                         )}
                     >
                         <Mail className='size-5 mr-2' />

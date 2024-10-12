@@ -1,4 +1,4 @@
-import AboutView from "@/views/about";
+import AboutView from "@/views/main/about";
 
 export default function AboutPage() {
     return (

@@ -2,10 +2,11 @@
 
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { cn } from "@/lib/utils";
-import { Briefcase, Hammer, Layers, User } from "lucide-react";
+import { Briefcase, Hammer, Info, Layers, User } from "lucide-react";
 import { useState } from "react";
+import Nav from "../partials/nav";
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "../ui/resizable";
-import Nav from "./nav";
+import { ScrollArea } from "../ui/scroll-area";
 
 interface DashboardLayoutProps {
     children: React.ReactNode;
@@ -33,7 +34,7 @@ export default function DashboardContent({
                 defaultSize={layout[0]}
                 collapsible={true}
                 collapsedSize={navCollapsedSize}
-                minSize={20}
+                minSize={5}
                 maxSize={50}
                 onCollapse={() => {
                     setIsCollapsed(true)
@@ -46,8 +47,8 @@ export default function DashboardContent({
                 className={cn(
                     (isCollapsed || !isDesktop) && 'min-w-[50px] max-w-[50px]',
                     !isCollapsed && isDesktop && 'min-w-[220px]',
-                    'relative bg-timberwolf-light dark:bg-eerie-mid-light',
-                    'max-md:border-r-2 max-md:border-timberwolf-dark max-md:dark:border-eerie-light'
+                    'relative bg-main-light dark:bg-alter-mid-light',
+                    'max-md:border-r-2 max-md:border-main-dark max-md:dark:border-alter-light'
                 )}
             >
 
@@ -55,10 +56,17 @@ export default function DashboardContent({
                     isCollapsed={isCollapsed || !isDesktop}
                     links={[
                         {
-                            title: 'Personal data',
-                            icon: User,
+                            title: 'Common',
+                            icon: Info,
                             href: '/dashboard',
                             path: '',
+                            translation: 'dashboard.layout.sidebar.common'
+                        },
+                        {
+                            title: 'Personal data',
+                            icon: User,
+                            href: '/dashboard/personal',
+                            path: 'personal',
                             translation: 'dashboard.layout.sidebar.personalData'
                         },
                         {
@@ -87,12 +95,14 @@ export default function DashboardContent({
             </ResizablePanel>
             {isDesktop && <ResizableHandle
                 withHandle
-                className='bg-timberwolf-dark dark:bg-eerie-light w-0.5'
+                className='bg-main-dark dark:bg-alter-light w-0.5'
             />}
             <ResizablePanel defaultSize={layout[1]} minSize={50}>
-                <div className='flex h-full items-center justify-center p-6'>
-                    {children}
-                </div>
+                <ScrollArea className='h-full'>
+                    <div className='min-h-full p-5'>
+                        {children}
+                    </div>
+                </ScrollArea>
             </ResizablePanel>
         </ResizablePanelGroup>
     )
