@@ -75,7 +75,7 @@ const config: Config = {
                 'alter-mid-light': '#282A2A',
                 'alter-light': '#323434',
 
-                // eggshell: '#F3EFE0',
+                eggshell: '#F3EFE0',
                 // 'eggshell-dark': '#EEE8D3',
                 // 'eggshell-light': '#F9F7F0',
                 coral: '#EF6F6C',
