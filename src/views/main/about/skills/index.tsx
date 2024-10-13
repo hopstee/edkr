@@ -19,7 +19,7 @@ const SkillCategoryWidget: React.FC<{ title: string, items: SkillItem[], folder:
                 }
             }}
             initial='hidden'
-            whileInView='visible'
+            animate='visible'
             viewport={{ once: true }}
             className={cn(
                 'backdrop-blur-md',

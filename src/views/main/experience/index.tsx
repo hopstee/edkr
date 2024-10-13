@@ -23,7 +23,7 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({ experience, id }) => {
             }}
             viewport={{ once: true }}
             initial='hidden'
-            whileInView='visible'
+            animate='visible'
         >
             <div className='flex items-center absolute top-3 -left-[3.5px] -translate-y-1/2'>
                 <div
@@ -34,13 +34,13 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({ experience, id }) => {
                 </div>
             </div>
             <div>
-                <h1 className='text-xl font-semibold text-alter dark:text-main'>
+                <h1 className='text-lg md:text-xl font-semibold text-alter dark:text-main'>
                     {experience.position}
                 </h1>
-                <h4 className='text-alter-light/70 dark:text-main-light/60'>
+                <h4 className='text-base md:text-lg text-alter-light/70 dark:text-main-light/60'>
                     {`${experience.company} (${experience.period.start} - ${experience.period.finish})`}
                 </h4>
-                <ol className='list-disc ml-5 mt-3 text-base text-alter-light/70 dark:text-main-light/60'>
+                <ol className='list-disc ml-5 mt-3 text-sm md:text-base text-alter-light/70 dark:text-main-light/60'>
                     {experience.description.map((item, index) => (
                         <li key={index}>
                             {item}

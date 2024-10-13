@@ -26,7 +26,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ project, id }) => {
             }}
             viewport={{ once: true }}
             initial='hidden'
-            whileInView='visible'
+            animate='visible'
         >
             <div className='w-full'>
                 <AspectRatio ratio={16 / 9}>
