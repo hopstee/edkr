@@ -11,7 +11,7 @@ export default async function MainLayout({
     children: React.ReactNode;
 }>) {
     const locale = await getLocale();
-    const commonFile = await fsPromises.readFile(path.resolve(`data/${locale}/common.json`), "utf8");
+    const commonFile = await fsPromises.readFile(path.resolve(`src/data/${locale}/common.json`), "utf8");
     const common: Common = JSON.parse(commonFile);
 
     return (

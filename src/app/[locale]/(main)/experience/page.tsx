@@ -6,7 +6,7 @@ import path from "path";
 
 export default async function ExperiencesPage() {
     const locale = await getLocale();
-    const experienceListFile = await fsPromises.readFile(path.resolve(`data/${locale}/experience.json`), "utf8");
+    const experienceListFile = await fsPromises.readFile(path.resolve(`src/data/${locale}/experience.json`), "utf8");
     const experienceList: ExperienceList = JSON.parse(experienceListFile);
 
     return <ExperiencesView experienceList={experienceList} />

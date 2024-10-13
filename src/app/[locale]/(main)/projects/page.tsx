@@ -6,7 +6,7 @@ import path from "path";
 
 export default async function ProjectsPage() {
     const locale = await getLocale();
-    const projectsFile = await fsPromises.readFile(path.resolve(`data/${locale}/projects.json`), "utf8");
+    const projectsFile = await fsPromises.readFile(path.resolve(`src/data/${locale}/projects.json`), "utf8");
     const projects: Project[] = JSON.parse(projectsFile);
 
     return <ProjectsView projects={projects} />
