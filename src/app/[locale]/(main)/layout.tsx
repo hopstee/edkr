@@ -1,7 +1,7 @@
 import BottomBar from "@/components/partials/bottombar";
 import Header from "@/components/partials/header";
 import { Common } from "@/shared/types/common";
-import { promises as fs } from "fs";
+import fsPromises from "fs/promises";
 import { getLocale } from "next-intl/server";
 import path from "path";
 
@@ -11,7 +11,7 @@ export default async function MainLayout({
     children: React.ReactNode;
 }>) {
     const locale = await getLocale();
-    const commonFile = await fs.readFile(path.resolve(`data/${locale}/common.json`), "utf8");
+    const commonFile = await fsPromises.readFile(path.resolve(`data/${locale}/common.json`), "utf8");
     const common: Common = JSON.parse(commonFile);
 
     return (

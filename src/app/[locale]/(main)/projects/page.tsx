@@ -1,12 +1,12 @@
 import { Project } from "@/shared/types/project";
 import ProjectsView from "@/views/main/projects";
-import { promises as fs } from "fs";
+import fsPromises from "fs/promises";
 import { getLocale } from "next-intl/server";
 import path from "path";
 
 export default async function ProjectsPage() {
     const locale = await getLocale();
-    const projectsFile = await fs.readFile(path.resolve(`data/${locale}/projects.json`), "utf8");
+    const projectsFile = await fsPromises.readFile(path.resolve(`data/${locale}/projects.json`), "utf8");
     const projects: Project[] = JSON.parse(projectsFile);
 
     return <ProjectsView projects={projects} />
