@@ -2,6 +2,22 @@
     "startYear": "2019",
     "experience": [
         {
+            "company": "Tazmar",
+            "position": "Fullstack Developer",
+            "period": {
+                "start": "Oct 2024",
+                "finish": "Present"
+            },
+            "description": [
+                "Develop plugins for the Mattermost messaging platform",
+                "Implemented a plugin for forwarding messages between any channels and users",
+                "Built a plugin for tracking message reads in chats",
+                "Modify plugin and create backend service for transcribing voice messages",
+                "Set up support for task queues, and high-load scenarios",
+                "Work with a tech stack including Go, TypeScript, Docker, PostgreSQL, and Redis"
+            ]
+        },
+        {
             "company": "Crossnetics",
             "position": "Fullstack Developer",
             "period": {
