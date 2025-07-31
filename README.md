@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌐 Personal Portfolio Website
+Персональный сайт-портфолио, разработанный на Next.js App Router, с поддержкой локализации и централизованным хранением данных. Проект задуман как быстрое, расширяемое и визуально минималистичное решение для представления профессионального опыта, проектов и навыков.
 
-## Getting Started
+### 🚀 Основные возможности
+- 🌐 Мультиязычность — поддержка английского и русского языков
+- 📁 Контент через JSON — данные о проектах, навыках, опыте и т.д. хранятся в src/data
+- ☁️ Лёгкий деплой — подходит для размещения на Vercel или любом другом хостинге
+- 🎨 Тёмная/светлая тема, переключение языков, отзывчивый дизайн
+- 🧠 TypeScript + TailwindCSS + Shadcn UI
 
-First, run the development server:
-
+### 📦 Установка
 ```bash
+# Установка зависимостей
+npm ci
+
+# Запуск в dev-режиме
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Сборка
+npm run build
+
+# Запуск production-сборки
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🌍 Локализация
+Локализация реализована через директорию `/translations`:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+translations/
+├── en.json
+└── ru.json
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 📁 Структура данных
+`📂 src/data/[locale]`
+| Файл                     | Назначение                           |
+|--------------------------|--------------------------------------|
+| `personal.json`          | Имя, профессия, биография            |
+| `projects.json`          | Проекты с изображениями и ссылками   |
+| `skills.json`            | Навыки с иконками и категориями      |
+| `experience.json`	       | Рабочие места и роли                 |
+| `newsletterOptions.json` | Настройки подписки                   |
+| `common.json`            | Заголовки, подписи и общие UI-строки |
 
-## Learn More
+### 🛠️ Admin Dashboard (в разработке)
 
-To learn more about Next.js, take a look at the following resources:
+Планируется реализация панели администратора по адресу:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`/[locale]/dashboard`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+🔒 На текущий момент функциональность ещё не реализована, но заложена архитектурно для будущего расширения (редактирование данных через UI, приватные маршруты, защита по паролю или авторизации).
 
-## Deploy on Vercel
+### 📂 Остальная структура проекта
+- `/src/app` — маршруты сайта (включая dashboard)
+- `/src/components` — переиспользуемые UI-компоненты
+- `/src/views` — страницы, разделённые на секции
+- `/src/hooks` — кастомные React-хуки
+- `/src/lib` — утилиты, загрузка данных
+- `/src/i18n` — i18n-механизмы (переводы, URL-язык)
+- `/public/assets` — изображения, иконки, фото
+- `/translations` — словари интерфейса (UI)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### ✨ Доп инфа
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Создан как персональное портфолио с упором на чистую архитектуру, хорошую типизацию и современный стек.
+Свободно используйте как шаблон под своё портфолио — fork, кастомизируйте, адаптируйте под себя.
+
+### 📄 Лицензия
+
+Проект распространяется под лицензией MIT.
